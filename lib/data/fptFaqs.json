@@ -1,0 +1,751 @@
+[
+  {
+    "id": "faq-001",
+    "category": "about",
+    "question": "Qu'est-ce que la FPT ?",
+    "answer": "La FPT est la Faculté Polydisciplinaire de Taroudant, un établissement d'enseignement supérieur public marocain relevant de l'Université Ibn Zohr (UIZ) d'Agadir. Elle propose des formations en cycle Licence et Master dans plusieurs champs disciplinaires : Sciences et Techniques, Économie et Gestion, et Lettres et Sciences humaines et sociales.",
+    "text": "Q: Qu'est-ce que la FPT ?\nR: La FPT est la Faculté Polydisciplinaire de Taroudant, un établissement d'enseignement supérieur public marocain relevant de l'Université Ibn Zohr (UIZ) d'Agadir. Elle propose des formations en cycle Licence et Master dans plusieurs champs disciplinaires : Sciences et Techniques, Économie et Gestion, et Lettres et Sciences humaines et sociales."
+  },
+  {
+    "id": "faq-002",
+    "category": "about",
+    "question": "Quand la FPT a-t-elle été créée ?",
+    "answer": "La Faculté Polydisciplinaire de Taroudant a été ouverte en 2010.",
+    "text": "Q: Quand la FPT a-t-elle été créée ?\nR: La Faculté Polydisciplinaire de Taroudant a été ouverte en 2010."
+  },
+  {
+    "id": "faq-003",
+    "category": "about",
+    "question": "Pourquoi la FPT a-t-elle été créée ?",
+    "answer": "La FPT constitue l'un des jalons universitaires du grand Sud marocain. Elle répond à deux objectifs principaux de l'Université Ibn Zohr : rapprocher la formation universitaire des jeunes de ces régions et intégrer l'université dans son contexte socioéconomique à travers des formations professionnelles ancrées dans le milieu local.",
+    "text": "Q: Pourquoi la FPT a-t-elle été créée ?\nR: La FPT constitue l'un des jalons universitaires du grand Sud marocain. Elle répond à deux objectifs principaux de l'Université Ibn Zohr : rapprocher la formation universitaire des jeunes de ces régions et intégrer l'université dans son contexte socioéconomique à travers des formations professionnelles ancrées dans le milieu local."
+  },
+  {
+    "id": "faq-004",
+    "category": "about",
+    "question": "À quelle université la FPT est-elle rattachée ?",
+    "answer": "La FPT est rattachée à l'Université Ibn Zohr (UIZ), dont le siège est à Agadir. L'UIZ est l'université publique qui couvre la région Souss-Massa et une partie du Sud marocain.",
+    "text": "Q: À quelle université la FPT est-elle rattachée ?\nR: La FPT est rattachée à l'Université Ibn Zohr (UIZ), dont le siège est à Agadir. L'UIZ est l'université publique qui couvre la région Souss-Massa et une partie du Sud marocain."
+  },
+  {
+    "id": "faq-005",
+    "category": "about",
+    "question": "Que signifie 'polydisciplinaire' dans le nom de la faculté ?",
+    "answer": "Le terme 'polydisciplinaire' indique que la faculté regroupe plusieurs champs disciplinaires au sein du même établissement, au lieu d'être spécialisée dans un seul domaine. La FPT couvre ainsi les sciences exactes, les sciences de la vie, l'informatique, l'économie et gestion, les sciences humaines et sociales, et les langues.",
+    "text": "Q: Que signifie 'polydisciplinaire' dans le nom de la faculté ?\nR: Le terme 'polydisciplinaire' indique que la faculté regroupe plusieurs champs disciplinaires au sein du même établissement, au lieu d'être spécialisée dans un seul domaine. La FPT couvre ainsi les sciences exactes, les sciences de la vie, l'informatique, l'économie et gestion, les sciences humaines et sociales, et les langues."
+  },
+  {
+    "id": "faq-006",
+    "category": "about",
+    "question": "Quels sont les grands champs disciplinaires de la FPT ?",
+    "answer": "La FPT couvre trois grands champs : Sciences et Techniques ; Économie et Gestion ; Lettres et Sciences humaines et sociales. Ces champs sont organisés en cinq départements.",
+    "text": "Q: Quels sont les grands champs disciplinaires de la FPT ?\nR: La FPT couvre trois grands champs : Sciences et Techniques ; Économie et Gestion ; Lettres et Sciences humaines et sociales. Ces champs sont organisés en cinq départements."
+  },
+  {
+    "id": "faq-007",
+    "category": "about",
+    "question": "La FPT est-elle un établissement public ou privé ?",
+    "answer": "La FPT est un établissement public relevant du Ministère de l'Enseignement Supérieur, de la Recherche Scientifique et de l'Innovation du Royaume du Maroc, à travers l'Université Ibn Zohr.",
+    "text": "Q: La FPT est-elle un établissement public ou privé ?\nR: La FPT est un établissement public relevant du Ministère de l'Enseignement Supérieur, de la Recherche Scientifique et de l'Innovation du Royaume du Maroc, à travers l'Université Ibn Zohr."
+  },
+  {
+    "id": "faq-008",
+    "category": "about",
+    "question": "Quel est le statut administratif de la FPT ?",
+    "answer": "La FPT est une faculté universitaire publique, régie par les textes législatifs marocains de l'enseignement supérieur. Son règlement intérieur et les cahiers des normes pédagogiques nationales encadrent son fonctionnement.",
+    "text": "Q: Quel est le statut administratif de la FPT ?\nR: La FPT est une faculté universitaire publique, régie par les textes législatifs marocains de l'enseignement supérieur. Son règlement intérieur et les cahiers des normes pédagogiques nationales encadrent son fonctionnement."
+  },
+  {
+    "id": "faq-009",
+    "category": "about",
+    "question": "Combien d'enseignants et de personnels compte la FPT ?",
+    "answer": "D'après le mot du doyen, une soixantaine d'enseignants-chercheurs et 16 cadres administratifs et techniques contribuent au développement de la faculté.",
+    "text": "Q: Combien d'enseignants et de personnels compte la FPT ?\nR: D'après le mot du doyen, une soixantaine d'enseignants-chercheurs et 16 cadres administratifs et techniques contribuent au développement de la faculté."
+  },
+  {
+    "id": "faq-010",
+    "category": "about",
+    "question": "Quelle est la devise ou la vocation de la FPT ?",
+    "answer": "La FPT se positionne comme un pont entre la jeunesse du Sud marocain et l'université, avec la volonté d'ancrer ses formations dans le tissu socioéconomique régional afin de favoriser l'employabilité et le développement local.",
+    "text": "Q: Quelle est la devise ou la vocation de la FPT ?\nR: La FPT se positionne comme un pont entre la jeunesse du Sud marocain et l'université, avec la volonté d'ancrer ses formations dans le tissu socioéconomique régional afin de favoriser l'employabilité et le développement local."
+  },
+  {
+    "id": "faq-011",
+    "category": "contact",
+    "question": "Où est située la FPT ?",
+    "answer": "La FPT est située à Hay El Mohammadi (Lastah), à Taroudant, dans la région Souss-Massa au sud du Maroc. L'adresse postale est : B.P. 271, 83 000 Taroudant, Maroc.",
+    "text": "Q: Où est située la FPT ?\nR: La FPT est située à Hay El Mohammadi (Lastah), à Taroudant, dans la région Souss-Massa au sud du Maroc. L'adresse postale est : B.P. 271, 83 000 Taroudant, Maroc."
+  },
+  {
+    "id": "faq-012",
+    "category": "contact",
+    "question": "Quels sont les numéros de téléphone et de fax de la FPT ?",
+    "answer": "Téléphone : +212 05 28 55 10 10. Fax : +212 05 28 55 10 20.",
+    "text": "Q: Quels sont les numéros de téléphone et de fax de la FPT ?\nR: Téléphone : +212 05 28 55 10 10. Fax : +212 05 28 55 10 20."
+  },
+  {
+    "id": "faq-013",
+    "category": "contact",
+    "question": "Quelle est l'adresse e-mail officielle de la FPT ?",
+    "answer": "L'adresse e-mail officielle est : FPTaroudant@univ-ibnzohr.ac.ma.",
+    "text": "Q: Quelle est l'adresse e-mail officielle de la FPT ?\nR: L'adresse e-mail officielle est : FPTaroudant@univ-ibnzohr.ac.ma."
+  },
+  {
+    "id": "faq-014",
+    "category": "contact",
+    "question": "Comment contacter la FPT via le site web ?",
+    "answer": "Le site fpt.ac.ma propose un formulaire de contact (rubrique « Contactez-nous ») avec différents objets : réclamation, prise de rendez-vous, ou autre. Il est accessible depuis le pied de page du site.",
+    "text": "Q: Comment contacter la FPT via le site web ?\nR: Le site fpt.ac.ma propose un formulaire de contact (rubrique « Contactez-nous ») avec différents objets : réclamation, prise de rendez-vous, ou autre. Il est accessible depuis le pied de page du site."
+  },
+  {
+    "id": "faq-015",
+    "category": "contact",
+    "question": "Quels réseaux sociaux sont utilisés par la FPT ?",
+    "answer": "La faculté est présente sur Facebook (page officielle siteFPT), sur YouTube avec une chaîne dédiée, ainsi que sur LinkedIn. Les liens sont accessibles depuis l'en-tête et le pied de page du site officiel.",
+    "text": "Q: Quels réseaux sociaux sont utilisés par la FPT ?\nR: La faculté est présente sur Facebook (page officielle siteFPT), sur YouTube avec une chaîne dédiée, ainsi que sur LinkedIn. Les liens sont accessibles depuis l'en-tête et le pied de page du site officiel."
+  },
+  {
+    "id": "faq-016",
+    "category": "governance",
+    "question": "Qui est le doyen actuel de la FPT ?",
+    "answer": "Le doyen de la FPT est M. Hassan HMAYZ, qui signe le « Mot du doyen » sur le site officiel.",
+    "text": "Q: Qui est le doyen actuel de la FPT ?\nR: Le doyen de la FPT est M. Hassan HMAYZ, qui signe le « Mot du doyen » sur le site officiel."
+  },
+  {
+    "id": "faq-017",
+    "category": "governance",
+    "question": "Qu'est-ce que le Conseil de la faculté ?",
+    "answer": "Le Conseil de la faculté est l'instance de gouvernance collégiale de la FPT. Il réunit des représentants de l'administration, du corps professoral et des étudiants, et délibère sur les orientations académiques, budgétaires et pédagogiques. La liste de ses membres est publiée sur le site.",
+    "text": "Q: Qu'est-ce que le Conseil de la faculté ?\nR: Le Conseil de la faculté est l'instance de gouvernance collégiale de la FPT. Il réunit des représentants de l'administration, du corps professoral et des étudiants, et délibère sur les orientations académiques, budgétaires et pédagogiques. La liste de ses membres est publiée sur le site."
+  },
+  {
+    "id": "faq-018",
+    "category": "governance",
+    "question": "Qu'est-ce que la Commission scientifique ?",
+    "answer": "La Commission scientifique est une instance spécialisée de la FPT chargée des questions liées à la recherche, aux carrières des enseignants-chercheurs, aux avis sur les recrutements, les habilitations et les activités scientifiques.",
+    "text": "Q: Qu'est-ce que la Commission scientifique ?\nR: La Commission scientifique est une instance spécialisée de la FPT chargée des questions liées à la recherche, aux carrières des enseignants-chercheurs, aux avis sur les recrutements, les habilitations et les activités scientifiques."
+  },
+  {
+    "id": "faq-019",
+    "category": "governance",
+    "question": "Quelles sont les autres commissions du conseil ?",
+    "answer": "Le site fait état de plusieurs commissions du conseil de la faculté (commissions de faculté, commission scientifique, commission de la recherche scientifique, etc.) qui préparent les délibérations dans leurs domaines respectifs.",
+    "text": "Q: Quelles sont les autres commissions du conseil ?\nR: Le site fait état de plusieurs commissions du conseil de la faculté (commissions de faculté, commission scientifique, commission de la recherche scientifique, etc.) qui préparent les délibérations dans leurs domaines respectifs."
+  },
+  {
+    "id": "faq-020",
+    "category": "governance",
+    "question": "Qu'est-ce que le corps administratif de la FPT ?",
+    "answer": "Le corps administratif regroupe les cadres et agents qui assurent la gestion quotidienne de la faculté : scolarité, ressources humaines, finances, logistique, informatique et communication. La liste nominative est publiée dans la rubrique « Corps administratif » du site.",
+    "text": "Q: Qu'est-ce que le corps administratif de la FPT ?\nR: Le corps administratif regroupe les cadres et agents qui assurent la gestion quotidienne de la faculté : scolarité, ressources humaines, finances, logistique, informatique et communication. La liste nominative est publiée dans la rubrique « Corps administratif » du site."
+  },
+  {
+    "id": "faq-021",
+    "category": "governance",
+    "question": "Qu'est-ce que le corps professoral de la FPT ?",
+    "answer": "Le corps professoral désigne l'ensemble des enseignants-chercheurs de la faculté, répartis dans les cinq départements. Leurs profils sont accessibles dans la rubrique « Corps professoral » du site.",
+    "text": "Q: Qu'est-ce que le corps professoral de la FPT ?\nR: Le corps professoral désigne l'ensemble des enseignants-chercheurs de la faculté, répartis dans les cinq départements. Leurs profils sont accessibles dans la rubrique « Corps professoral » du site."
+  },
+  {
+    "id": "faq-022",
+    "category": "governance",
+    "question": "Où se trouve le règlement intérieur de la FPT ?",
+    "answer": "Le règlement intérieur de la FPT est publié dans la rubrique « La Faculté » > « Règlement intérieur » du site officiel. Il encadre la vie universitaire, les droits et devoirs des étudiants et du personnel.",
+    "text": "Q: Où se trouve le règlement intérieur de la FPT ?\nR: Le règlement intérieur de la FPT est publié dans la rubrique « La Faculté » > « Règlement intérieur » du site officiel. Il encadre la vie universitaire, les droits et devoirs des étudiants et du personnel."
+  },
+  {
+    "id": "faq-023",
+    "category": "departments",
+    "question": "Combien de départements compte la FPT ?",
+    "answer": "La FPT est organisée en cinq départements : Physique-Chimie ; Mathématiques et Informatique ; Sciences Humaines et Sociales ; Sciences Économiques et Gestion ; Sciences et Techniques.",
+    "text": "Q: Combien de départements compte la FPT ?\nR: La FPT est organisée en cinq départements : Physique-Chimie ; Mathématiques et Informatique ; Sciences Humaines et Sociales ; Sciences Économiques et Gestion ; Sciences et Techniques."
+  },
+  {
+    "id": "faq-024",
+    "category": "departments",
+    "question": "Que couvre le département Physique-Chimie ?",
+    "answer": "Le département Physique-Chimie porte un tronc commun de Physique-Chimie et des licences spécialisées : Chimie Analytique et Contrôle Qualité, Sciences et Ingénierie de l'Eau, Efficacité Énergétique Industrielle et Agricole, Valorisation des Ressources Halieutiques et Développement Durable. Il porte aussi le Master « Méthodes d'Analyse et Contrôle de la Qualité ».",
+    "text": "Q: Que couvre le département Physique-Chimie ?\nR: Le département Physique-Chimie porte un tronc commun de Physique-Chimie et des licences spécialisées : Chimie Analytique et Contrôle Qualité, Sciences et Ingénierie de l'Eau, Efficacité Énergétique Industrielle et Agricole, Valorisation des Ressources Halieutiques et Développement Durable. Il porte aussi le Master « Méthodes d'Analyse et Contrôle de la Qualité »."
+  },
+  {
+    "id": "faq-025",
+    "category": "departments",
+    "question": "Que couvre le département Mathématiques et Informatique ?",
+    "answer": "Le département Mathématiques et Informatique porte la Licence en Génie Informatique, la Licence Professionnelle Génie Informatique, et le Master Big Data et Intelligence Artificielle (version recherche et version alternance).",
+    "text": "Q: Que couvre le département Mathématiques et Informatique ?\nR: Le département Mathématiques et Informatique porte la Licence en Génie Informatique, la Licence Professionnelle Génie Informatique, et le Master Big Data et Intelligence Artificielle (version recherche et version alternance)."
+  },
+  {
+    "id": "faq-026",
+    "category": "departments",
+    "question": "Que couvre le département Sciences Humaines et Sociales ?",
+    "answer": "Ce département regroupe les formations en langues, communication, droit et études religieuses : Licence en Langues Étrangères Appliquées (communication professionnelle), Licence en Média Digital, filière Langues Étrangères Appliquées, Licence en Chariaa (Sciences Juridiques et Religieuses), Master en Communication Transition Numérique et Développement Territorial, Master en Communication (en arabe), Master en Fiqh des Droits (en arabe).",
+    "text": "Q: Que couvre le département Sciences Humaines et Sociales ?\nR: Ce département regroupe les formations en langues, communication, droit et études religieuses : Licence en Langues Étrangères Appliquées (communication professionnelle), Licence en Média Digital, filière Langues Étrangères Appliquées, Licence en Chariaa (Sciences Juridiques et Religieuses), Master en Communication Transition Numérique et Développement Territorial, Master en Communication (en arabe), Master en Fiqh des Droits (en arabe)."
+  },
+  {
+    "id": "faq-027",
+    "category": "departments",
+    "question": "Que couvre le département Sciences Économiques et Gestion ?",
+    "answer": "Ce département porte la filière Sciences Économiques et Gestion, la Licence en E-Business et Marketing Digital, la Licence en Entrepreneuriat et Développement des Business, le Master Management et Commerce International (versions classique et alternance) et le Master Stratégie des Organisations et Transformation Numérique.",
+    "text": "Q: Que couvre le département Sciences Économiques et Gestion ?\nR: Ce département porte la filière Sciences Économiques et Gestion, la Licence en E-Business et Marketing Digital, la Licence en Entrepreneuriat et Développement des Business, le Master Management et Commerce International (versions classique et alternance) et le Master Stratégie des Organisations et Transformation Numérique."
+  },
+  {
+    "id": "faq-028",
+    "category": "departments",
+    "question": "Que couvre le département Sciences et Techniques ?",
+    "answer": "Ce département porte la Licence en Mathématiques et Applications aux Sciences de l'Ingénieur (MIP), la Licence en Biosciences, Biotechnologie et Environnement (BBE), la Licence Fondamentale Sciences de la Vie, et la Licence Professionnelle Agroalimentaire.",
+    "text": "Q: Que couvre le département Sciences et Techniques ?\nR: Ce département porte la Licence en Mathématiques et Applications aux Sciences de l'Ingénieur (MIP), la Licence en Biosciences, Biotechnologie et Environnement (BBE), la Licence Fondamentale Sciences de la Vie, et la Licence Professionnelle Agroalimentaire."
+  },
+  {
+    "id": "faq-029",
+    "category": "departments",
+    "question": "Comment les départements interagissent-ils entre eux ?",
+    "answer": "Les départements coopèrent à travers des enseignements mutualisés (par exemple les troncs communs), des projets de recherche pluridisciplinaires, et les instances transversales (conseil de faculté, commissions). Cette coopération reflète la nature « polydisciplinaire » de l'établissement.",
+    "text": "Q: Comment les départements interagissent-ils entre eux ?\nR: Les départements coopèrent à travers des enseignements mutualisés (par exemple les troncs communs), des projets de recherche pluridisciplinaires, et les instances transversales (conseil de faculté, commissions). Cette coopération reflète la nature « polydisciplinaire » de l'établissement."
+  },
+  {
+    "id": "faq-030",
+    "category": "departments",
+    "question": "Comment contacter un département précis ?",
+    "answer": "Chaque département dispose d'une page dédiée accessible depuis le menu « Départements » du site. Les coordonnées du chef de département et les informations de contact y figurent lorsqu'elles sont renseignées ; sinon, il faut passer par le standard général de la faculté.",
+    "text": "Q: Comment contacter un département précis ?\nR: Chaque département dispose d'une page dédiée accessible depuis le menu « Départements » du site. Les coordonnées du chef de département et les informations de contact y figurent lorsqu'elles sont renseignées ; sinon, il faut passer par le standard général de la faculté."
+  },
+  {
+    "id": "faq-031",
+    "category": "departments",
+    "question": "Quels sont les codes courts utilisés pour les filières dans les avis ?",
+    "answer": "Les avis aux étudiants utilisent des codes courts : GI (Génie Informatique), TC_PC (Tronc Commun Physique-Chimie), BBE (Biosciences, Biotechnologie et Environnement), MD (Média Digital), E-BMD (E-Business et Marketing Digital), EEIA (Efficacité Énergétique Industrielle et Agricole), CACQ (Chimie Analytique et Contrôle Qualité), SIE (Sciences et Ingénierie de l'Eau), GEMD (utilisé pour un groupe du cursus E-Business et Marketing Digital).",
+    "text": "Q: Quels sont les codes courts utilisés pour les filières dans les avis ?\nR: Les avis aux étudiants utilisent des codes courts : GI (Génie Informatique), TC_PC (Tronc Commun Physique-Chimie), BBE (Biosciences, Biotechnologie et Environnement), MD (Média Digital), E-BMD (E-Business et Marketing Digital), EEIA (Efficacité Énergétique Industrielle et Agricole), CACQ (Chimie Analytique et Contrôle Qualité), SIE (Sciences et Ingénierie de l'Eau), GEMD (utilisé pour un groupe du cursus E-Business et Marketing Digital)."
+  },
+  {
+    "id": "faq-032",
+    "category": "departments",
+    "question": "Les enseignements sont-ils donnés en arabe, en français ou en anglais ?",
+    "answer": "La langue d'enseignement principale varie selon les filières : français pour la majorité des formations scientifiques, économiques et en langues ; arabe pour les filières Chariaa, Fiqh des Droits et Communication (branche arabe). Les compétences en anglais sont transversales et renforcées notamment dans les filières Big Data/IA, LEA et Média Digital.",
+    "text": "Q: Les enseignements sont-ils donnés en arabe, en français ou en anglais ?\nR: La langue d'enseignement principale varie selon les filières : français pour la majorité des formations scientifiques, économiques et en langues ; arabe pour les filières Chariaa, Fiqh des Droits et Communication (branche arabe). Les compétences en anglais sont transversales et renforcées notamment dans les filières Big Data/IA, LEA et Média Digital."
+  },
+  {
+    "id": "faq-033",
+    "category": "licences",
+    "question": "Qu'est-ce qu'une Licence fondamentale à la FPT ?",
+    "answer": "Une Licence fondamentale est un diplôme de premier cycle universitaire (Bac+3) organisé sur six semestres (S1 à S6), à vocation à la fois académique et préparatoire à la poursuite d'études en Master. Plusieurs licences fondamentales sont offertes à la FPT.",
+    "text": "Q: Qu'est-ce qu'une Licence fondamentale à la FPT ?\nR: Une Licence fondamentale est un diplôme de premier cycle universitaire (Bac+3) organisé sur six semestres (S1 à S6), à vocation à la fois académique et préparatoire à la poursuite d'études en Master. Plusieurs licences fondamentales sont offertes à la FPT."
+  },
+  {
+    "id": "faq-034",
+    "category": "licences",
+    "question": "Quelles sont les licences proposées en Mathématiques et Informatique ?",
+    "answer": "Deux licences principales : Licence en Génie Informatique (LGI) et Licence Professionnelle Génie Informatique (LP GI).",
+    "text": "Q: Quelles sont les licences proposées en Mathématiques et Informatique ?\nR: Deux licences principales : Licence en Génie Informatique (LGI) et Licence Professionnelle Génie Informatique (LP GI)."
+  },
+  {
+    "id": "faq-035",
+    "category": "licences",
+    "question": "Quelles sont les licences proposées en Sciences et Techniques ?",
+    "answer": "Quatre licences : Licence en Mathématiques et Applications aux Sciences de l'Ingénieur (MIP), Licence en Biosciences, Biotechnologie et Environnement (BBE), Licence Fondamentale Sciences de la Vie, et Licence Professionnelle Agroalimentaire.",
+    "text": "Q: Quelles sont les licences proposées en Sciences et Techniques ?\nR: Quatre licences : Licence en Mathématiques et Applications aux Sciences de l'Ingénieur (MIP), Licence en Biosciences, Biotechnologie et Environnement (BBE), Licence Fondamentale Sciences de la Vie, et Licence Professionnelle Agroalimentaire."
+  },
+  {
+    "id": "faq-036",
+    "category": "licences",
+    "question": "Quelles sont les licences proposées en Physique-Chimie ?",
+    "answer": "Licence en Chimie Analytique et Contrôle Qualité (CACQ), Licence en Sciences et Ingénierie de l'Eau (SIE), Licence en Efficacité Énergétique Industrielle et Agricole (EEIA), Licence en Valorisation des Ressources Halieutiques et Développement Durable (VRHDD), ainsi qu'un Tronc Commun Physique-Chimie en début de cursus.",
+    "text": "Q: Quelles sont les licences proposées en Physique-Chimie ?\nR: Licence en Chimie Analytique et Contrôle Qualité (CACQ), Licence en Sciences et Ingénierie de l'Eau (SIE), Licence en Efficacité Énergétique Industrielle et Agricole (EEIA), Licence en Valorisation des Ressources Halieutiques et Développement Durable (VRHDD), ainsi qu'un Tronc Commun Physique-Chimie en début de cursus."
+  },
+  {
+    "id": "faq-037",
+    "category": "licences",
+    "question": "Quelles sont les licences proposées en Économie et Gestion ?",
+    "answer": "Licence Fondamentale Sciences Économiques et Gestion (économie et gestion), Licence en E-Business et Marketing Digital, Licence en Entrepreneuriat et Développement des Business.",
+    "text": "Q: Quelles sont les licences proposées en Économie et Gestion ?\nR: Licence Fondamentale Sciences Économiques et Gestion (économie et gestion), Licence en E-Business et Marketing Digital, Licence en Entrepreneuriat et Développement des Business."
+  },
+  {
+    "id": "faq-038",
+    "category": "licences",
+    "question": "Quelles sont les licences proposées en Sciences Humaines et Sociales ?",
+    "answer": "Licence en Langues Étrangères Appliquées — Communication Professionnelle, Licence en Média Digital, filière Langues Étrangères Appliquées, Licence (Ijaza) en Chariaa et Sciences Juridiques et Religieuses.",
+    "text": "Q: Quelles sont les licences proposées en Sciences Humaines et Sociales ?\nR: Licence en Langues Étrangères Appliquées — Communication Professionnelle, Licence en Média Digital, filière Langues Étrangères Appliquées, Licence (Ijaza) en Chariaa et Sciences Juridiques et Religieuses."
+  },
+  {
+    "id": "faq-039",
+    "category": "licences",
+    "question": "Que contient le tronc commun Physique-Chimie ?",
+    "answer": "Le tronc commun Physique-Chimie regroupe les premiers semestres partagés entre les licences du département Physique-Chimie, avant que les étudiants ne s'orientent vers l'une des spécialités (CACQ, SIE, EEIA, VRHDD).",
+    "text": "Q: Que contient le tronc commun Physique-Chimie ?\nR: Le tronc commun Physique-Chimie regroupe les premiers semestres partagés entre les licences du département Physique-Chimie, avant que les étudiants ne s'orientent vers l'une des spécialités (CACQ, SIE, EEIA, VRHDD)."
+  },
+  {
+    "id": "faq-040",
+    "category": "licences",
+    "question": "Combien de semestres compte une licence ?",
+    "answer": "Une licence à la FPT compte six semestres (S1 à S6) pour les licences fondamentales et licences en études fondamentales, conformément au système LMD (Licence-Master-Doctorat) en vigueur dans les universités marocaines.",
+    "text": "Q: Combien de semestres compte une licence ?\nR: Une licence à la FPT compte six semestres (S1 à S6) pour les licences fondamentales et licences en études fondamentales, conformément au système LMD (Licence-Master-Doctorat) en vigueur dans les universités marocaines."
+  },
+  {
+    "id": "faq-041",
+    "category": "licences",
+    "question": "Quels débouchés offrent les licences fondamentales ?",
+    "answer": "Les licences fondamentales préparent principalement à la poursuite d'études en Master ou en écoles spécialisées, avec aussi des débouchés directs dans des fonctions techniques ou de support, selon la filière.",
+    "text": "Q: Quels débouchés offrent les licences fondamentales ?\nR: Les licences fondamentales préparent principalement à la poursuite d'études en Master ou en écoles spécialisées, avec aussi des débouchés directs dans des fonctions techniques ou de support, selon la filière."
+  },
+  {
+    "id": "faq-042",
+    "category": "licences",
+    "question": "Où trouver les plaquettes (dépliants) des licences ?",
+    "answer": "La FPT publie des plaquettes illustrées (dépliants de deux pages) pour chaque filière. Elles sont consultables dans la page de la filière concernée sur le site fpt.ac.ma, et contiennent les objectifs, modules, conditions d'accès et débouchés.",
+    "text": "Q: Où trouver les plaquettes (dépliants) des licences ?\nR: La FPT publie des plaquettes illustrées (dépliants de deux pages) pour chaque filière. Elles sont consultables dans la page de la filière concernée sur le site fpt.ac.ma, et contiennent les objectifs, modules, conditions d'accès et débouchés."
+  },
+  {
+    "id": "faq-043",
+    "category": "licences-pro",
+    "question": "Qu'est-ce qu'une licence professionnelle ?",
+    "answer": "Une licence professionnelle est un diplôme de niveau Bac+3 à finalité d'insertion professionnelle. Elle se déroule généralement sur deux semestres (après Bac+2) ou intègre un fort volume de stage et de projets en milieu professionnel.",
+    "text": "Q: Qu'est-ce qu'une licence professionnelle ?\nR: Une licence professionnelle est un diplôme de niveau Bac+3 à finalité d'insertion professionnelle. Elle se déroule généralement sur deux semestres (après Bac+2) ou intègre un fort volume de stage et de projets en milieu professionnel."
+  },
+  {
+    "id": "faq-044",
+    "category": "licences-pro",
+    "question": "Quelles licences professionnelles propose la FPT ?",
+    "answer": "La FPT propose notamment : Licence Professionnelle Génie Informatique, Licence Professionnelle Agroalimentaire, Licence Professionnelle Ressources Halieutiques et Développement Durable, et filière Agro-BV-GEDD (sciences agrobiologiques et environnement).",
+    "text": "Q: Quelles licences professionnelles propose la FPT ?\nR: La FPT propose notamment : Licence Professionnelle Génie Informatique, Licence Professionnelle Agroalimentaire, Licence Professionnelle Ressources Halieutiques et Développement Durable, et filière Agro-BV-GEDD (sciences agrobiologiques et environnement)."
+  },
+  {
+    "id": "faq-045",
+    "category": "licences-pro",
+    "question": "Quelles sont les conditions d'accès à une licence professionnelle ?",
+    "answer": "L'accès est généralement conditionné par un Bac+2 scientifique ou technique cohérent avec la filière, suivi d'une sélection (étude de dossier, parfois entretien). Les conditions précises sont publiées annuellement dans la plaquette de la filière.",
+    "text": "Q: Quelles sont les conditions d'accès à une licence professionnelle ?\nR: L'accès est généralement conditionné par un Bac+2 scientifique ou technique cohérent avec la filière, suivi d'une sélection (étude de dossier, parfois entretien). Les conditions précises sont publiées annuellement dans la plaquette de la filière."
+  },
+  {
+    "id": "faq-046",
+    "category": "licences-pro",
+    "question": "La licence professionnelle comprend-elle un stage obligatoire ?",
+    "answer": "Oui : les licences professionnelles comprennent un stage en entreprise ou un projet de fin d'études, encadré par un enseignant et un tuteur professionnel. La rubrique « Stages et PFE » du site en précise le cadre.",
+    "text": "Q: La licence professionnelle comprend-elle un stage obligatoire ?\nR: Oui : les licences professionnelles comprennent un stage en entreprise ou un projet de fin d'études, encadré par un enseignant et un tuteur professionnel. La rubrique « Stages et PFE » du site en précise le cadre."
+  },
+  {
+    "id": "faq-047",
+    "category": "licences-pro",
+    "question": "Quels débouchés offre la Licence Professionnelle Génie Informatique ?",
+    "answer": "Cette licence forme à des métiers comme développeur d'applications web et mobiles, administrateur systèmes et réseaux, technicien en cybersécurité, intégrateur d'outils métiers, selon la plaquette publiée par la FPT.",
+    "text": "Q: Quels débouchés offre la Licence Professionnelle Génie Informatique ?\nR: Cette licence forme à des métiers comme développeur d'applications web et mobiles, administrateur systèmes et réseaux, technicien en cybersécurité, intégrateur d'outils métiers, selon la plaquette publiée par la FPT."
+  },
+  {
+    "id": "faq-048",
+    "category": "licences-pro",
+    "question": "Quels débouchés offre la Licence Professionnelle Agroalimentaire ?",
+    "answer": "Les débouchés typiques sont les postes de technicien qualité, responsable production, contrôle qualité et sécurité alimentaire, conseiller technique dans l'industrie agroalimentaire et coopératives agricoles — un secteur fortement représenté dans la région du Souss.",
+    "text": "Q: Quels débouchés offre la Licence Professionnelle Agroalimentaire ?\nR: Les débouchés typiques sont les postes de technicien qualité, responsable production, contrôle qualité et sécurité alimentaire, conseiller technique dans l'industrie agroalimentaire et coopératives agricoles — un secteur fortement représenté dans la région du Souss."
+  },
+  {
+    "id": "faq-049",
+    "category": "licences-pro",
+    "question": "Existe-t-il une licence professionnelle en halieutique et développement durable ?",
+    "answer": "Oui. La FPT propose une licence professionnelle dédiée à la valorisation des ressources halieutiques et au développement durable, en phase avec l'économie régionale (pêche, transformation, agriculture durable).",
+    "text": "Q: Existe-t-il une licence professionnelle en halieutique et développement durable ?\nR: Oui. La FPT propose une licence professionnelle dédiée à la valorisation des ressources halieutiques et au développement durable, en phase avec l'économie régionale (pêche, transformation, agriculture durable)."
+  },
+  {
+    "id": "faq-050",
+    "category": "masters",
+    "question": "Combien de Masters la FPT propose-t-elle ?",
+    "answer": "La FPT propose actuellement plusieurs Masters, dont : Master Big Data et Intelligence Artificielle (version classique et version en alternance « _TA »), Master Management et Commerce International (classique et alternance), Master Stratégie des Organisations et Transformation Numérique, Master Méthodes d'Analyse et Contrôle de la Qualité (classique et alternance), Master Communication Transition Numérique et Développement Territorial (classique et alternance), Master en Communication (en arabe), Master en Fiqh des Droits (en arabe), Master Spécialisé Procédés d'Analyse et Contrôle Qualité, et Master Spécialisé Sciences Géomatiques Appliquées à la Gestion des Ressources Naturelles et Environnementales.",
+    "text": "Q: Combien de Masters la FPT propose-t-elle ?\nR: La FPT propose actuellement plusieurs Masters, dont : Master Big Data et Intelligence Artificielle (version classique et version en alternance « _TA »), Master Management et Commerce International (classique et alternance), Master Stratégie des Organisations et Transformation Numérique, Master Méthodes d'Analyse et Contrôle de la Qualité (classique et alternance), Master Communication Transition Numérique et Développement Territorial (classique et alternance), Master en Communication (en arabe), Master en Fiqh des Droits (en arabe), Master Spécialisé Procédés d'Analyse et Contrôle Qualité, et Master Spécialisé Sciences Géomatiques Appliquées à la Gestion des Ressources Naturelles et Environnementales."
+  },
+  {
+    "id": "faq-051",
+    "category": "masters",
+    "question": "Qu'est-ce que la mention '_TA' dans le nom d'un Master ?",
+    "answer": "Le suffixe « _TA » désigne une version du Master en temps alterné (formation en alternance), organisée avec des périodes en entreprise, pour accueillir notamment des professionnels en reprise d'études ou des étudiants en rythme alterné.",
+    "text": "Q: Qu'est-ce que la mention '_TA' dans le nom d'un Master ?\nR: Le suffixe « _TA » désigne une version du Master en temps alterné (formation en alternance), organisée avec des périodes en entreprise, pour accueillir notamment des professionnels en reprise d'études ou des étudiants en rythme alterné."
+  },
+  {
+    "id": "faq-052",
+    "category": "masters",
+    "question": "Quel est le contenu du Master Big Data et Intelligence Artificielle ?",
+    "answer": "Ce Master couvre les fondamentaux et applications avancées du Big Data et de l'intelligence artificielle : apprentissage automatique, apprentissage profond, traitement massif de données, bases NoSQL, visualisation, éthique des données, et projets appliqués à des cas d'usage réels. Les détails par semestre figurent dans la plaquette publiée sur le site.",
+    "text": "Q: Quel est le contenu du Master Big Data et Intelligence Artificielle ?\nR: Ce Master couvre les fondamentaux et applications avancées du Big Data et de l'intelligence artificielle : apprentissage automatique, apprentissage profond, traitement massif de données, bases NoSQL, visualisation, éthique des données, et projets appliqués à des cas d'usage réels. Les détails par semestre figurent dans la plaquette publiée sur le site."
+  },
+  {
+    "id": "faq-053",
+    "category": "masters",
+    "question": "Qu'apporte le Master Stratégie des Organisations et Transformation Numérique ?",
+    "answer": "Ce Master prépare aux fonctions de pilotage stratégique dans un contexte de transformation digitale : stratégie d'entreprise, conduite du changement, systèmes d'information, numérique et management, innovation.",
+    "text": "Q: Qu'apporte le Master Stratégie des Organisations et Transformation Numérique ?\nR: Ce Master prépare aux fonctions de pilotage stratégique dans un contexte de transformation digitale : stratégie d'entreprise, conduite du changement, systèmes d'information, numérique et management, innovation."
+  },
+  {
+    "id": "faq-054",
+    "category": "masters",
+    "question": "Quelle est l'originalité du Master Management et Commerce International ?",
+    "answer": "Ce Master vise les métiers du commerce international, de la logistique, de la négociation interculturelle et de la conformité, avec un volet linguistique et un volet marchés internationaux. Il existe en version classique et en version alternance (_TA).",
+    "text": "Q: Quelle est l'originalité du Master Management et Commerce International ?\nR: Ce Master vise les métiers du commerce international, de la logistique, de la négociation interculturelle et de la conformité, avec un volet linguistique et un volet marchés internationaux. Il existe en version classique et en version alternance (_TA)."
+  },
+  {
+    "id": "faq-055",
+    "category": "masters",
+    "question": "Que couvre le Master Méthodes d'Analyse et Contrôle de la Qualité ?",
+    "answer": "Ce Master, porté par le département Physique-Chimie, forme des cadres experts en techniques analytiques, assurance qualité, contrôle qualité en laboratoire et en industrie. Il existe en version classique et en alternance.",
+    "text": "Q: Que couvre le Master Méthodes d'Analyse et Contrôle de la Qualité ?\nR: Ce Master, porté par le département Physique-Chimie, forme des cadres experts en techniques analytiques, assurance qualité, contrôle qualité en laboratoire et en industrie. Il existe en version classique et en alternance."
+  },
+  {
+    "id": "faq-056",
+    "category": "masters",
+    "question": "Quels sont les Masters en langue arabe ?",
+    "answer": "Deux Masters sont dispensés principalement en arabe : le Master en Communication (ماستر التواصل) et le Master en Fiqh des Droits (ماستر فقه الحقوق).",
+    "text": "Q: Quels sont les Masters en langue arabe ?\nR: Deux Masters sont dispensés principalement en arabe : le Master en Communication (ماستر التواصل) et le Master en Fiqh des Droits (ماستر فقه الحقوق)."
+  },
+  {
+    "id": "faq-057",
+    "category": "masters",
+    "question": "Qu'est-ce que le Master Spécialisé Sciences Géomatiques ?",
+    "answer": "Le Master Spécialisé Sciences Géomatiques Appliquées à la Gestion des Ressources Naturelles et Environnementales forme aux SIG (systèmes d'information géographique), à la télédétection et à la gestion des ressources naturelles, dans une perspective de développement territorial durable.",
+    "text": "Q: Qu'est-ce que le Master Spécialisé Sciences Géomatiques ?\nR: Le Master Spécialisé Sciences Géomatiques Appliquées à la Gestion des Ressources Naturelles et Environnementales forme aux SIG (systèmes d'information géographique), à la télédétection et à la gestion des ressources naturelles, dans une perspective de développement territorial durable."
+  },
+  {
+    "id": "faq-058",
+    "category": "masters",
+    "question": "Quelles sont les conditions d'accès en Master ?",
+    "answer": "L'accès en Master est généralement conditionné par une licence dans un domaine compatible, une sélection sur dossier (notes, classement, expérience), et parfois un entretien ou un test écrit. Le nombre de places est limité chaque année.",
+    "text": "Q: Quelles sont les conditions d'accès en Master ?\nR: L'accès en Master est généralement conditionné par une licence dans un domaine compatible, une sélection sur dossier (notes, classement, expérience), et parfois un entretien ou un test écrit. Le nombre de places est limité chaque année."
+  },
+  {
+    "id": "faq-059",
+    "category": "masters",
+    "question": "Existe-t-il une formation doctorale à la FPT ?",
+    "answer": "La FPT participe à la formation doctorale à travers l'Université Ibn Zohr. Les informations sur les structures et procédures sont regroupées dans la rubrique « Formation doctorale » du site.",
+    "text": "Q: Existe-t-il une formation doctorale à la FPT ?\nR: La FPT participe à la formation doctorale à travers l'Université Ibn Zohr. Les informations sur les structures et procédures sont regroupées dans la rubrique « Formation doctorale » du site."
+  },
+  {
+    "id": "faq-060",
+    "category": "admissions",
+    "question": "Comment s'inscrire à une licence à la FPT ?",
+    "answer": "L'accès aux licences passe par la plateforme nationale de préinscription (généralement via www.tawjihi.ma ou la procédure de l'Université Ibn Zohr), suivie d'une inscription administrative à la FPT avec pièces justificatives (baccalauréat, relevés, pièce d'identité, photos, reçus de droits d'inscription).",
+    "text": "Q: Comment s'inscrire à une licence à la FPT ?\nR: L'accès aux licences passe par la plateforme nationale de préinscription (généralement via www.tawjihi.ma ou la procédure de l'Université Ibn Zohr), suivie d'une inscription administrative à la FPT avec pièces justificatives (baccalauréat, relevés, pièce d'identité, photos, reçus de droits d'inscription)."
+  },
+  {
+    "id": "faq-061",
+    "category": "admissions",
+    "question": "Comment candidater à un Master de la FPT ?",
+    "answer": "Les masters ouvrent un appel à candidatures annuel : les candidats déposent un dossier comprenant CV, lettre de motivation, diplôme de licence et relevés de notes. Une présélection sur dossier est suivie le plus souvent d'un entretien ou d'un test. Les annonces sont publiées dans la rubrique « Avis aux étudiants ».",
+    "text": "Q: Comment candidater à un Master de la FPT ?\nR: Les masters ouvrent un appel à candidatures annuel : les candidats déposent un dossier comprenant CV, lettre de motivation, diplôme de licence et relevés de notes. Une présélection sur dossier est suivie le plus souvent d'un entretien ou d'un test. Les annonces sont publiées dans la rubrique « Avis aux étudiants »."
+  },
+  {
+    "id": "faq-062",
+    "category": "admissions",
+    "question": "Quand commence l'année universitaire à la FPT ?",
+    "answer": "L'année universitaire suit le calendrier officiel de l'Université Ibn Zohr : la rentrée a lieu généralement en septembre, avec deux semestres (automne et printemps) séparés par une session d'examens.",
+    "text": "Q: Quand commence l'année universitaire à la FPT ?\nR: L'année universitaire suit le calendrier officiel de l'Université Ibn Zohr : la rentrée a lieu généralement en septembre, avec deux semestres (automne et printemps) séparés par une session d'examens."
+  },
+  {
+    "id": "faq-063",
+    "category": "admissions",
+    "question": "Où trouver les emplois du temps ?",
+    "answer": "Les emplois du temps sont publiés dans la rubrique « Espace Étudiant » > « Emplois du temps » du site. Ils sont régulièrement mis à jour en début et en cours de semestre.",
+    "text": "Q: Où trouver les emplois du temps ?\nR: Les emplois du temps sont publiés dans la rubrique « Espace Étudiant » > « Emplois du temps » du site. Ils sont régulièrement mis à jour en début et en cours de semestre."
+  },
+  {
+    "id": "faq-064",
+    "category": "admissions",
+    "question": "Où trouver la liste des groupes ?",
+    "answer": "La rubrique « Espace Étudiant » > « Listes des groupes » permet aux étudiants de consulter leur affectation en groupes de TD, TP ou cours.",
+    "text": "Q: Où trouver la liste des groupes ?\nR: La rubrique « Espace Étudiant » > « Listes des groupes » permet aux étudiants de consulter leur affectation en groupes de TD, TP ou cours."
+  },
+  {
+    "id": "faq-065",
+    "category": "examens",
+    "question": "Où est publié le calendrier des examens ?",
+    "answer": "Le calendrier des examens est publié dans la rubrique « Espace Étudiant » > « Calendriers des examens » du site officiel.",
+    "text": "Q: Où est publié le calendrier des examens ?\nR: Le calendrier des examens est publié dans la rubrique « Espace Étudiant » > « Calendriers des examens » du site officiel."
+  },
+  {
+    "id": "faq-066",
+    "category": "examens",
+    "question": "Où consulter le règlement des examens ?",
+    "answer": "Le règlement des examens est accessible dans la rubrique « Espace Étudiant » > « Règlement des examens ». La FPT publie des affichages officiels, en français et en arabe, précisant les modalités et les sanctions.",
+    "text": "Q: Où consulter le règlement des examens ?\nR: Le règlement des examens est accessible dans la rubrique « Espace Étudiant » > « Règlement des examens ». La FPT publie des affichages officiels, en français et en arabe, précisant les modalités et les sanctions."
+  },
+  {
+    "id": "faq-067",
+    "category": "examens",
+    "question": "Quelles sanctions existent pour la fraude aux examens ?",
+    "answer": "La FPT publie officiellement un document « Sanctions fraudes » (en arabe et en français) détaillant les sanctions disciplinaires applicables en cas de fraude ou de tentative de fraude. Elles peuvent aller de l'annulation de l'épreuve à l'exclusion temporaire ou définitive, conformément aux textes nationaux.",
+    "text": "Q: Quelles sanctions existent pour la fraude aux examens ?\nR: La FPT publie officiellement un document « Sanctions fraudes » (en arabe et en français) détaillant les sanctions disciplinaires applicables en cas de fraude ou de tentative de fraude. Elles peuvent aller de l'annulation de l'épreuve à l'exclusion temporaire ou définitive, conformément aux textes nationaux."
+  },
+  {
+    "id": "faq-068",
+    "category": "examens",
+    "question": "Qu'est-ce qu'un avis aux étudiants ?",
+    "answer": "Un « avis aux étudiants » est une communication officielle de la faculté ou d'un département, publiée dans la rubrique dédiée du site, concernant par exemple une modification d'emploi du temps, un rattrapage, un TP, une convocation, ou un report.",
+    "text": "Q: Qu'est-ce qu'un avis aux étudiants ?\nR: Un « avis aux étudiants » est une communication officielle de la faculté ou d'un département, publiée dans la rubrique dédiée du site, concernant par exemple une modification d'emploi du temps, un rattrapage, un TP, une convocation, ou un report."
+  },
+  {
+    "id": "faq-069",
+    "category": "examens",
+    "question": "Comment savoir si un avis concerne ma filière ?",
+    "answer": "Chaque avis est étiqueté par le code court de la filière concernée (GI, PC, BBE, MD, E-BMD, EEIA, CACQ, SIE, etc.). Il faut vérifier ce code au bas de l'avis.",
+    "text": "Q: Comment savoir si un avis concerne ma filière ?\nR: Chaque avis est étiqueté par le code court de la filière concernée (GI, PC, BBE, MD, E-BMD, EEIA, CACQ, SIE, etc.). Il faut vérifier ce code au bas de l'avis."
+  },
+  {
+    "id": "faq-070",
+    "category": "examens",
+    "question": "Le régime est-il semestriel ou annuel ?",
+    "answer": "Le régime est semestriel : deux semestres par année universitaire, chacun avec sa propre session d'examens et, le cas échéant, sa session de rattrapage.",
+    "text": "Q: Le régime est-il semestriel ou annuel ?\nR: Le régime est semestriel : deux semestres par année universitaire, chacun avec sa propre session d'examens et, le cas échéant, sa session de rattrapage."
+  },
+  {
+    "id": "faq-071",
+    "category": "examens",
+    "question": "Comment fonctionnent les sessions de rattrapage ?",
+    "answer": "Les modules non validés à la session normale peuvent être rattrapés lors d'une session de rattrapage, selon des règles précises (moyenne, compensation, nombre de tentatives) fixées par le cahier des normes pédagogiques national et le règlement intérieur de la faculté.",
+    "text": "Q: Comment fonctionnent les sessions de rattrapage ?\nR: Les modules non validés à la session normale peuvent être rattrapés lors d'une session de rattrapage, selon des règles précises (moyenne, compensation, nombre de tentatives) fixées par le cahier des normes pédagogiques national et le règlement intérieur de la faculté."
+  },
+  {
+    "id": "faq-072",
+    "category": "vie-etudiante",
+    "question": "Qu'est-ce que l'Espace numérique de la FPT ?",
+    "answer": "L'Espace numérique (ene.fpt.ac.ma) est l'environnement numérique de travail des étudiants : il centralise les accès aux ressources en ligne, aux cours, aux notes et à l'emploi du temps.",
+    "text": "Q: Qu'est-ce que l'Espace numérique de la FPT ?\nR: L'Espace numérique (ene.fpt.ac.ma) est l'environnement numérique de travail des étudiants : il centralise les accès aux ressources en ligne, aux cours, aux notes et à l'emploi du temps."
+  },
+  {
+    "id": "faq-073",
+    "category": "vie-etudiante",
+    "question": "Qu'est-ce que la plateforme MOOC / cours en ligne ?",
+    "answer": "La plateforme de cours en ligne, hébergée à l'adresse ecours-fpt.uiz.ac.ma, propose les cours, supports et activités pédagogiques de la FPT. C'est l'espace Moodle officiel de la faculté.",
+    "text": "Q: Qu'est-ce que la plateforme MOOC / cours en ligne ?\nR: La plateforme de cours en ligne, hébergée à l'adresse ecours-fpt.uiz.ac.ma, propose les cours, supports et activités pédagogiques de la FPT. C'est l'espace Moodle officiel de la faculté."
+  },
+  {
+    "id": "faq-074",
+    "category": "vie-etudiante",
+    "question": "Qu'est-ce que l'AMO pour les étudiants ?",
+    "answer": "L'AMO est l'Assurance Maladie Obligatoire des étudiants, gérée au niveau de l'Université Ibn Zohr via le portail amoe.uiz.ac.ma. Elle assure une couverture santé de base pour les étudiants inscrits.",
+    "text": "Q: Qu'est-ce que l'AMO pour les étudiants ?\nR: L'AMO est l'Assurance Maladie Obligatoire des étudiants, gérée au niveau de l'Université Ibn Zohr via le portail amoe.uiz.ac.ma. Elle assure une couverture santé de base pour les étudiants inscrits."
+  },
+  {
+    "id": "faq-075",
+    "category": "vie-etudiante",
+    "question": "Quels clubs et associations existent à la FPT ?",
+    "answer": "La FPT abrite plusieurs clubs et associations étudiants couvrant les domaines culturels, scientifiques, sportifs et solidaires. La liste est publiée dans la rubrique « Clubs et associations » du site et la vie associative est décrite comme particulièrement dynamique dans le mot du doyen.",
+    "text": "Q: Quels clubs et associations existent à la FPT ?\nR: La FPT abrite plusieurs clubs et associations étudiants couvrant les domaines culturels, scientifiques, sportifs et solidaires. La liste est publiée dans la rubrique « Clubs et associations » du site et la vie associative est décrite comme particulièrement dynamique dans le mot du doyen."
+  },
+  {
+    "id": "faq-076",
+    "category": "vie-etudiante",
+    "question": "Comment créer un club étudiant à la FPT ?",
+    "answer": "La création d'un club étudiant se fait auprès de l'administration de la faculté (décanat / affaires estudiantines), avec un projet associatif, un bureau étudiant, et l'aval du doyen ou de son représentant.",
+    "text": "Q: Comment créer un club étudiant à la FPT ?\nR: La création d'un club étudiant se fait auprès de l'administration de la faculté (décanat / affaires estudiantines), avec un projet associatif, un bureau étudiant, et l'aval du doyen ou de son représentant."
+  },
+  {
+    "id": "faq-077",
+    "category": "vie-etudiante",
+    "question": "Quelles manifestations scientifiques et culturelles y ont lieu ?",
+    "answer": "La FPT organise régulièrement des séminaires, conférences, journées scientifiques et ateliers, souvent à l'initiative d'étudiants ou d'enseignants-chercheurs. Les dernières actualités (Terra Madre Day, journées de la langue espagnole, visites pédagogiques, séminaires) sont publiées dans la rubrique « Actualités ».",
+    "text": "Q: Quelles manifestations scientifiques et culturelles y ont lieu ?\nR: La FPT organise régulièrement des séminaires, conférences, journées scientifiques et ateliers, souvent à l'initiative d'étudiants ou d'enseignants-chercheurs. Les dernières actualités (Terra Madre Day, journées de la langue espagnole, visites pédagogiques, séminaires) sont publiées dans la rubrique « Actualités »."
+  },
+  {
+    "id": "faq-078",
+    "category": "vie-etudiante",
+    "question": "Existe-t-il un espace de tutorat ?",
+    "answer": "Oui. Un « Espace tutorat » est proposé pour les trois grands champs — Sciences Humaines et Sociales, Sciences Économiques et Gestion, Sciences et Techniques — afin d'accompagner les étudiants dans leur réussite académique.",
+    "text": "Q: Existe-t-il un espace de tutorat ?\nR: Oui. Un « Espace tutorat » est proposé pour les trois grands champs — Sciences Humaines et Sociales, Sciences Économiques et Gestion, Sciences et Techniques — afin d'accompagner les étudiants dans leur réussite académique."
+  },
+  {
+    "id": "faq-079",
+    "category": "vie-etudiante",
+    "question": "Existe-t-il une association des œuvres sociales ?",
+    "answer": "Oui. L'« Association des œuvres sociales des administrateurs et professeurs de la FPT » est une association dédiée au personnel de la faculté, dont la rubrique est accessible sur le site.",
+    "text": "Q: Existe-t-il une association des œuvres sociales ?\nR: Oui. L'« Association des œuvres sociales des administrateurs et professeurs de la FPT » est une association dédiée au personnel de la faculté, dont la rubrique est accessible sur le site."
+  },
+  {
+    "id": "faq-080",
+    "category": "recherche",
+    "question": "Quelle est la politique de recherche de la FPT ?",
+    "answer": "La FPT mène une politique de recherche structurée autour de plusieurs axes, coordonnés par la Commission de la recherche scientifique. Elle couvre les publications, les communications, les brevets, les projets de recherche et les manifestations scientifiques.",
+    "text": "Q: Quelle est la politique de recherche de la FPT ?\nR: La FPT mène une politique de recherche structurée autour de plusieurs axes, coordonnés par la Commission de la recherche scientifique. Elle couvre les publications, les communications, les brevets, les projets de recherche et les manifestations scientifiques."
+  },
+  {
+    "id": "faq-081",
+    "category": "recherche",
+    "question": "Qu'est-ce qu'une structure de recherche à la FPT ?",
+    "answer": "Les structures de recherche de la FPT sont les laboratoires et équipes de recherche regroupant les enseignants-chercheurs autour de thématiques communes. Leur liste est publiée dans la rubrique « Structures de recherche » du site.",
+    "text": "Q: Qu'est-ce qu'une structure de recherche à la FPT ?\nR: Les structures de recherche de la FPT sont les laboratoires et équipes de recherche regroupant les enseignants-chercheurs autour de thématiques communes. Leur liste est publiée dans la rubrique « Structures de recherche » du site."
+  },
+  {
+    "id": "faq-082",
+    "category": "recherche",
+    "question": "La FPT a-t-elle des partenariats de recherche ?",
+    "answer": "Oui. La rubrique « Coopération et collaboration » présente les accords de coopération avec d'autres universités, centres de recherche et organismes nationaux et internationaux.",
+    "text": "Q: La FPT a-t-elle des partenariats de recherche ?\nR: Oui. La rubrique « Coopération et collaboration » présente les accords de coopération avec d'autres universités, centres de recherche et organismes nationaux et internationaux."
+  },
+  {
+    "id": "faq-083",
+    "category": "recherche",
+    "question": "Existe-t-il des programmes de mobilité pour les chercheurs ?",
+    "answer": "Oui. La rubrique « Mobilité chercheurs » informe sur les dispositifs de mobilité entrante et sortante ouverts aux enseignants-chercheurs de la FPT.",
+    "text": "Q: Existe-t-il des programmes de mobilité pour les chercheurs ?\nR: Oui. La rubrique « Mobilité chercheurs » informe sur les dispositifs de mobilité entrante et sortante ouverts aux enseignants-chercheurs de la FPT."
+  },
+  {
+    "id": "faq-084",
+    "category": "recherche",
+    "question": "Comment sont financées les manifestations scientifiques ?",
+    "answer": "La FPT dispose d'un dispositif de soutien aux manifestations scientifiques (rubrique dédiée), encadrant l'organisation de colloques, conférences et journées d'études à partir de critères d'éligibilité.",
+    "text": "Q: Comment sont financées les manifestations scientifiques ?\nR: La FPT dispose d'un dispositif de soutien aux manifestations scientifiques (rubrique dédiée), encadrant l'organisation de colloques, conférences et journées d'études à partir de critères d'éligibilité."
+  },
+  {
+    "id": "faq-085",
+    "category": "recherche",
+    "question": "La FPT dépose-t-elle des brevets ?",
+    "answer": "La rubrique « Brevets » du site recense les brevets déposés par les chercheurs de la FPT, attestant de la production scientifique appliquée de l'établissement.",
+    "text": "Q: La FPT dépose-t-elle des brevets ?\nR: La rubrique « Brevets » du site recense les brevets déposés par les chercheurs de la FPT, attestant de la production scientifique appliquée de l'établissement."
+  },
+  {
+    "id": "faq-086",
+    "category": "recherche",
+    "question": "Où sont publiées les publications des chercheurs ?",
+    "answer": "Les publications et communications des enseignants-chercheurs sont recensées dans les rubriques « Publications » et « Communications » du site, qui documentent la production scientifique annuelle.",
+    "text": "Q: Où sont publiées les publications des chercheurs ?\nR: Les publications et communications des enseignants-chercheurs sont recensées dans les rubriques « Publications » et « Communications » du site, qui documentent la production scientifique annuelle."
+  },
+  {
+    "id": "faq-087",
+    "category": "recherche",
+    "question": "Qu'est-ce que le REC (Research Ethics Committee) ?",
+    "answer": "Le REC est le comité d'éthique de la recherche de la FPT. Il veille au respect des normes éthiques et déontologiques dans les travaux de recherche menés ou supervisés par la faculté.",
+    "text": "Q: Qu'est-ce que le REC (Research Ethics Committee) ?\nR: Le REC est le comité d'éthique de la recherche de la FPT. Il veille au respect des normes éthiques et déontologiques dans les travaux de recherche menés ou supervisés par la faculté."
+  },
+  {
+    "id": "faq-088",
+    "category": "doctorat",
+    "question": "Comment fonctionne la formation doctorale ?",
+    "answer": "La formation doctorale à la FPT s'inscrit dans les centres d'études doctorales (CEDoc) de l'Université Ibn Zohr. Les informations sur l'inscription, les thèses en cours et les soutenances sont centralisées dans la rubrique « Formation doctorale ».",
+    "text": "Q: Comment fonctionne la formation doctorale ?\nR: La formation doctorale à la FPT s'inscrit dans les centres d'études doctorales (CEDoc) de l'Université Ibn Zohr. Les informations sur l'inscription, les thèses en cours et les soutenances sont centralisées dans la rubrique « Formation doctorale »."
+  },
+  {
+    "id": "faq-089",
+    "category": "doctorat",
+    "question": "Comment fonctionnent les stages et PFE ?",
+    "answer": "La FPT publie une rubrique « Stages et PFE » qui détaille le cadre réglementaire du stage, les conventions types, et les procédures de dépôt et de soutenance du Projet de Fin d'Études.",
+    "text": "Q: Comment fonctionnent les stages et PFE ?\nR: La FPT publie une rubrique « Stages et PFE » qui détaille le cadre réglementaire du stage, les conventions types, et les procédures de dépôt et de soutenance du Projet de Fin d'Études."
+  },
+  {
+    "id": "faq-090",
+    "category": "doctorat",
+    "question": "Quelle est la politique d'insertion professionnelle ?",
+    "answer": "La FPT met l'accent sur l'insertion professionnelle à travers ses licences et masters professionnels (alternance, stages obligatoires), ses partenariats avec le tissu socioéconomique local, et son ancrage régional.",
+    "text": "Q: Quelle est la politique d'insertion professionnelle ?\nR: La FPT met l'accent sur l'insertion professionnelle à travers ses licences et masters professionnels (alternance, stages obligatoires), ses partenariats avec le tissu socioéconomique local, et son ancrage régional."
+  },
+  {
+    "id": "faq-091",
+    "category": "taroudant",
+    "question": "Où se trouve géographiquement Taroudant ?",
+    "answer": "Taroudant est située dans la vallée du Souss, au sud du Maroc. La ville est entourée au nord par les contreforts occidentaux du Haut Atlas et au sud et au centre par les montagnes de l'Anti-Atlas. L'oued Souss traverse la province et se jette dans l'Océan Atlantique dans la province voisine d'Agadir.",
+    "text": "Q: Où se trouve géographiquement Taroudant ?\nR: Taroudant est située dans la vallée du Souss, au sud du Maroc. La ville est entourée au nord par les contreforts occidentaux du Haut Atlas et au sud et au centre par les montagnes de l'Anti-Atlas. L'oued Souss traverse la province et se jette dans l'Océan Atlantique dans la province voisine d'Agadir."
+  },
+  {
+    "id": "faq-092",
+    "category": "taroudant",
+    "question": "Pourquoi Taroudant est-elle une province essentiellement montagneuse ?",
+    "answer": "Le territoire de la province s'articule autour de la vallée du Souss, avec le Haut Atlas au nord et l'Anti-Atlas au sud et au centre, ce qui en fait une province à dominante montagneuse.",
+    "text": "Q: Pourquoi Taroudant est-elle une province essentiellement montagneuse ?\nR: Le territoire de la province s'articule autour de la vallée du Souss, avec le Haut Atlas au nord et l'Anti-Atlas au sud et au centre, ce qui en fait une province à dominante montagneuse."
+  },
+  {
+    "id": "faq-093",
+    "category": "taroudant",
+    "question": "Quelles activités de plein air propose la région ?",
+    "answer": "La région offre notamment des randonnées dans deux grands massifs : l'Anti-Atlas, dernière chaîne avant le Sahara, et le Haut Atlas qui abrite le Jbel Toubkal, plus haut sommet du Maroc. Les paysages alternent étendues arides et vallées à végétation abondante.",
+    "text": "Q: Quelles activités de plein air propose la région ?\nR: La région offre notamment des randonnées dans deux grands massifs : l'Anti-Atlas, dernière chaîne avant le Sahara, et le Haut Atlas qui abrite le Jbel Toubkal, plus haut sommet du Maroc. Les paysages alternent étendues arides et vallées à végétation abondante."
+  },
+  {
+    "id": "faq-094",
+    "category": "taroudant",
+    "question": "Quelle est l'économie locale de Taroudant ?",
+    "answer": "L'économie régionale repose sur l'agriculture (agrumes, notamment oranges et clémentines, et huile d'argan spécifique à la région, huile d'olive), l'artisanat (cuir, bois, argile, cuivre, laine) et le tourisme. Ces secteurs expliquent l'ancrage de plusieurs filières de la FPT (agroalimentaire, sciences de la vie, ressources halieutiques, environnement).",
+    "text": "Q: Quelle est l'économie locale de Taroudant ?\nR: L'économie régionale repose sur l'agriculture (agrumes, notamment oranges et clémentines, et huile d'argan spécifique à la région, huile d'olive), l'artisanat (cuir, bois, argile, cuivre, laine) et le tourisme. Ces secteurs expliquent l'ancrage de plusieurs filières de la FPT (agroalimentaire, sciences de la vie, ressources halieutiques, environnement)."
+  },
+  {
+    "id": "faq-095",
+    "category": "patrimoine",
+    "question": "Pourquoi Taroudant est-elle célèbre pour ses murailles ?",
+    "answer": "Taroudant a été capitale de la dynastie saadienne. Elle est défendue par 6 km de remparts dans lesquels s'imbriquent 130 tours et 19 bastions d'angle, reliés par un chemin de ronde, ce qui en a fait une citadelle réputée imprenable. Neuf portes voûtées permettent le passage.",
+    "text": "Q: Pourquoi Taroudant est-elle célèbre pour ses murailles ?\nR: Taroudant a été capitale de la dynastie saadienne. Elle est défendue par 6 km de remparts dans lesquels s'imbriquent 130 tours et 19 bastions d'angle, reliés par un chemin de ronde, ce qui en a fait une citadelle réputée imprenable. Neuf portes voûtées permettent le passage."
+  },
+  {
+    "id": "faq-096",
+    "category": "patrimoine",
+    "question": "Combien de portes compte la muraille ?",
+    "answer": "La muraille de Taroudant compte neuf portes voûtées d'architecture mauresque, disposées principalement aux points cardinaux : cinq portes anciennes et des portes plus récentes ouvertes pour faciliter la circulation.",
+    "text": "Q: Combien de portes compte la muraille ?\nR: La muraille de Taroudant compte neuf portes voûtées d'architecture mauresque, disposées principalement aux points cardinaux : cinq portes anciennes et des portes plus récentes ouvertes pour faciliter la circulation."
+  },
+  {
+    "id": "faq-097",
+    "category": "patrimoine",
+    "question": "Quel est l'artisanat caractéristique de Taroudant ?",
+    "answer": "Les artisans de Taroudant, dits « Roudanis », travaillent le cuir, le bois, l'argile, le cuivre et la laine, en alliant tradition et modernité. L'artisanat local est un pilier identitaire et économique de la ville.",
+    "text": "Q: Quel est l'artisanat caractéristique de Taroudant ?\nR: Les artisans de Taroudant, dits « Roudanis », travaillent le cuir, le bois, l'argile, le cuivre et la laine, en alliant tradition et modernité. L'artisanat local est un pilier identitaire et économique de la ville."
+  },
+  {
+    "id": "faq-098",
+    "category": "patrimoine",
+    "question": "Quels sont les partenaires institutionnels de la FPT ?",
+    "answer": "La FPT met en avant des partenaires institutionnels marocains : le Ministère de l'Enseignement Supérieur (ENSSUP), le Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique (CSEFRS), et le Centre National pour la Recherche Scientifique et Technique (CNRST).",
+    "text": "Q: Quels sont les partenaires institutionnels de la FPT ?\nR: La FPT met en avant des partenaires institutionnels marocains : le Ministère de l'Enseignement Supérieur (ENSSUP), le Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique (CSEFRS), et le Centre National pour la Recherche Scientifique et Technique (CNRST)."
+  },
+  {
+    "id": "faq-099",
+    "category": "patrimoine",
+    "question": "Quels sont les principaux liens numériques à connaître pour les étudiants ?",
+    "answer": "Les principaux liens numériques à connaître sont : fpt.ac.ma (site officiel), ene.fpt.ac.ma (espace numérique étudiant), ecours-fpt.uiz.ac.ma (plateforme Moodle des cours), amoe.uiz.ac.ma (portail AMO), uiz.ac.ma (Université Ibn Zohr), enssup.gov.ma (ministère), cnrst.ma (CNRST).",
+    "text": "Q: Quels sont les principaux liens numériques à connaître pour les étudiants ?\nR: Les principaux liens numériques à connaître sont : fpt.ac.ma (site officiel), ene.fpt.ac.ma (espace numérique étudiant), ecours-fpt.uiz.ac.ma (plateforme Moodle des cours), amoe.uiz.ac.ma (portail AMO), uiz.ac.ma (Université Ibn Zohr), enssup.gov.ma (ministère), cnrst.ma (CNRST)."
+  },
+  {
+    "id": "faq-100",
+    "category": "patrimoine",
+    "question": "Comment rester informé des actualités de la FPT ?",
+    "answer": "Il suffit de consulter régulièrement la rubrique « Actualités » du site officiel, la rubrique « Avis aux étudiants », la page Facebook officielle (siteFPT) et la chaîne YouTube de la faculté, où sont annoncés séminaires, conférences, journées portes ouvertes et événements culturels.",
+    "text": "Q: Comment rester informé des actualités de la FPT ?\nR: Il suffit de consulter régulièrement la rubrique « Actualités » du site officiel, la rubrique « Avis aux étudiants », la page Facebook officielle (siteFPT) et la chaîne YouTube de la faculté, où sont annoncés séminaires, conférences, journées portes ouvertes et événements culturels."
+  },
+  {
+    "id": "faq-101",
+    "category": "departments",
+    "question": "Quels sont les 5 départements de la FPT ?",
+    "answer": "La FPT compte cinq départements : Physique-Chimie, Mathématiques et Informatique, Sciences Humaines et Sociales, Sciences Économiques et Gestion, et Sciences et Techniques. Chaque département dispose d'une présentation et d'informations sur ses membres et responsables.",
+    "text": "Q: Quels sont les 5 départements de la FPT ?\nR: La FPT compte cinq départements : Physique-Chimie, Mathématiques et Informatique, Sciences Humaines et Sociales, Sciences Économiques et Gestion, et Sciences et Techniques. Chaque département dispose d'une présentation et d'informations sur ses membres et responsables."
+  },
+  {
+    "id": "faq-102",
+    "category": "formations",
+    "question": "Quelles formations sont proposées en Mathématiques et Informatique ?",
+    "answer": "Le département Mathématiques et Informatique propose notamment : Master Big Data et IA, Master Big Data et IA (Temps Aménagé), Licence Génie Informatique et Licence Professionnelle Génie Informatique.",
+    "text": "Q: Quelles formations sont proposées en Mathématiques et Informatique ?\nR: Le département Mathématiques et Informatique propose notamment : Master Big Data et IA, Master Big Data et IA (Temps Aménagé), Licence Génie Informatique et Licence Professionnelle Génie Informatique."
+  },
+  {
+    "id": "faq-103",
+    "category": "formations",
+    "question": "Quelles formations sont proposées en Sciences et Techniques ?",
+    "answer": "En Sciences et Techniques, la FPT propose entre autres : Licence Mathématiques et Sciences de l'Ingénieur, Tronc commun Biologie-Chimie-Géologie, Licence Biosciences Biotechnologie et Environnement, Licence Fondamentale Sciences de la Vie et Licence Professionnelle Agroalimentaire.",
+    "text": "Q: Quelles formations sont proposées en Sciences et Techniques ?\nR: En Sciences et Techniques, la FPT propose entre autres : Licence Mathématiques et Sciences de l'Ingénieur, Tronc commun Biologie-Chimie-Géologie, Licence Biosciences Biotechnologie et Environnement, Licence Fondamentale Sciences de la Vie et Licence Professionnelle Agroalimentaire."
+  },
+  {
+    "id": "faq-104",
+    "category": "formations",
+    "question": "Quelles formations sont proposées en Sciences Économiques et Gestion ?",
+    "answer": "Le département Sciences Économiques et Gestion propose notamment : Master Stratégie des Organisations et Transformation Numérique, Master Management et Commerce International, Licence Sciences Économiques et Gestion, Licence E-Business et Marketing Digital, et Licence Entrepreneuriat et Développement des Business.",
+    "text": "Q: Quelles formations sont proposées en Sciences Économiques et Gestion ?\nR: Le département Sciences Économiques et Gestion propose notamment : Master Stratégie des Organisations et Transformation Numérique, Master Management et Commerce International, Licence Sciences Économiques et Gestion, Licence E-Business et Marketing Digital, et Licence Entrepreneuriat et Développement des Business."
+  },
+  {
+    "id": "faq-105",
+    "category": "formations",
+    "question": "Quelles formations sont proposées en Sciences Humaines et Sociales ?",
+    "answer": "Le département Sciences Humaines et Sociales comprend : ماستر فقه الحقوق, ماستر التواصل, Master Communication et Transition Numérique, Licence LEA Communication Professionnelle, Licence Média Digital, إجازة في الشريعة والقانون, et la filière Langues Étrangères Appliquées.",
+    "text": "Q: Quelles formations sont proposées en Sciences Humaines et Sociales ?\nR: Le département Sciences Humaines et Sociales comprend : ماستر فقه الحقوق, ماستر التواصل, Master Communication et Transition Numérique, Licence LEA Communication Professionnelle, Licence Média Digital, إجازة في الشريعة والقانون, et la filière Langues Étrangères Appliquées."
+  },
+  {
+    "id": "faq-106",
+    "category": "formations",
+    "question": "Quelles formations sont proposées en Physique-Chimie ?",
+    "answer": "Le département Physique-Chimie propose : Master Méthodes d'Analyse et Contrôle Qualité, Master MACQ (Temps Aménagé), Licence Sciences et Ingénierie de l'Eau, Licence Efficacité Énergétique Industrielle et Agricole, Licence Chimie Analytique et Contrôle Qualité, Tronc Commun Physique-Chimie, et Licence Valorisation des Ressources Halieutiques.",
+    "text": "Q: Quelles formations sont proposées en Physique-Chimie ?\nR: Le département Physique-Chimie propose : Master Méthodes d'Analyse et Contrôle Qualité, Master MACQ (Temps Aménagé), Licence Sciences et Ingénierie de l'Eau, Licence Efficacité Énergétique Industrielle et Agricole, Licence Chimie Analytique et Contrôle Qualité, Tronc Commun Physique-Chimie, et Licence Valorisation des Ressources Halieutiques."
+  },
+  {
+    "id": "faq-107",
+    "category": "contact",
+    "question": "Que répondre si une information n'est pas disponible ?",
+    "answer": "Si l'information n'est pas disponible ou hors périmètre, il faut rediriger vers le site officiel https://fpt.ac.ma ou vers le standard +212 05 28 55 10 10.",
+    "text": "Q: Que répondre si une information n'est pas disponible ?\nR: Si l'information n'est pas disponible ou hors périmètre, il faut rediriger vers le site officiel https://fpt.ac.ma ou vers le standard +212 05 28 55 10 10."
+  }
+]

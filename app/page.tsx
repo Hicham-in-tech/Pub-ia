@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { BackgroundFX } from "@/components/character/BackgroundFX";
 import { Rouda } from "@/components/character/Rouda";
@@ -121,7 +122,7 @@ export default function KioskPage() {
         }
       } catch (err) {
         console.error("[chat] failed", err);
-        setError("n8n unreachable");
+        setError("chat backend unreachable");
         pushMessage({
           role: "rouda",
           text: "Désolée, je n'arrive pas à répondre maintenant. Réessayez dans un instant.",
@@ -236,6 +237,17 @@ export default function KioskPage() {
         className="relative mx-auto flex h-dvh w-dvw max-w-[1080px] flex-col overflow-hidden"
         onClick={markInteraction}
       >
+        <div className="pointer-events-none absolute inset-x-0 top-3 z-20 flex justify-center px-4">
+          <Image
+            src="/fpt-logo-blue.png"
+            alt="Faculte Polydisciplinaire Taroudant"
+            width={1800}
+            height={430}
+            className="h-auto w-full max-w-[920px] object-contain"
+            priority
+          />
+        </div>
+
         {/* Top: character zone — ~60% */}
         <div
           className="relative flex shrink-0 items-end justify-center overflow-hidden"
@@ -316,6 +328,10 @@ export default function KioskPage() {
 
             <LangPills />
           </div>
+
+          <p className="text-center font-mono text-kiosk-xs uppercase tracking-[0.18em] text-[var(--color-base-400)]">
+            Developed by Hicham Boudouch and Hamza Bella
+          </p>
         </div>
 
         {/* Boot gate — big first-touch affordance */}

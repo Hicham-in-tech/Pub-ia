@@ -1,6 +1,6 @@
 /**
  * Short-lived in-memory audio buffer cache. The /api/chat route writes a clip
- * when n8n returns one, and /api/audio/[id] reads it back as a normal HTTP
+ * when the backend generates one, and /api/audio/[id] reads it back as a normal HTTP
  * stream. This keeps the browser playing real URLs (no data-URI size limits,
  * no base64 encoding, no JSON payload inflation).
  *

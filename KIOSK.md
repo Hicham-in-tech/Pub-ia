@@ -11,7 +11,7 @@ For dev setup, see `SETUP.md`.
 - Native resolution **1080 × 1920** (preferred) or **2160 × 3840** (4K vertical). The
   layout is built with `clamp()` and viewport units — no media-query swap.
 - Capacitive touch only. No mouse or keyboard reachable to the public.
-- Wired ethernet preferred (Wi-Fi as fallback) — the n8n webhook is over the internet.
+- Wired ethernet preferred (Wi-Fi as fallback) — STT/LLM/TTS APIs are internet-backed.
 - Permanent power. No battery.
 - Speakers loud enough to hear from 1–2m in a busy event hall (built-in panel speakers
   are usually too quiet — bring a powered pair).
@@ -20,11 +20,17 @@ For dev setup, see `SETUP.md`.
 
 ## Hosting
 
-Production app on Vercel. Single env var: `N8N_WEBHOOK_URL`.
+Production app on Vercel.
 
 ```
 Vercel → Project → Settings → Environment Variables
-  N8N_WEBHOOK_URL = https://<n8n-host>/webhook/<chat-endpoint>
+  MISTRAL_API_KEY = <your-mistral-api-key>
+  GROQ_API_KEY = <your-groq-api-key>
+  ELEVENLABS_API_KEY = <your-elevenlabs-api-key>
+  ELEVENLABS_VOICE_ID = iP95p4xoKVk53GoZ742B   # optional
+  ELEVENLABS_MODEL_ID = eleven_flash_v2_5      # optional
+  GROQ_STT_MODEL = whisper-large-v3-turbo      # optional
+  MISTRAL_MODEL = mistral-large-latest         # optional
   Scope: Production
 ```
 
@@ -153,7 +159,7 @@ Tape one printed copy of this section to the back of the kiosk panel.
 
 ## Pre-event checklist (24h before)
 
-- [ ] n8n webhook responding (`curl -X POST $N8N_WEBHOOK_URL -d '{"sessionId":"test","chatInput":"bonjour"}' -H 'Content-Type: application/json'`).
+- [ ] `/api/chat` responding (`curl -X POST https://<your-domain>/api/chat -d '{"sessionId":"test","chatInput":"bonjour"}' -H 'Content-Type: application/json'`).
 - [ ] Mic permission auto-granted on the kiosk machine (touch the mic, no permission prompt).
 - [ ] Audio output volume at 75–85% — set on the OS, not the app.
 - [ ] Mic input level visible in OS settings when speaking from 1m away.
@@ -170,7 +176,7 @@ Tape one printed copy of this section to the back of the kiosk panel.
 
 ## Network failure behavior
 
-If `/api/chat` returns 502 (n8n unreachable), the app shows Rouda in `error` state with
+If `/api/chat` returns 502 (backend unreachable), the app shows Rouda in `error` state with
 a one-line message in the user's last detected language:
 
 - FR: "Désolée, je n'arrive pas à répondre maintenant. Réessayez dans un instant."

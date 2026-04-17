@@ -73,6 +73,7 @@ export default function KioskPage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [quickQuestions, setQuickQuestions] = useState<string[]>(DEFAULT_QUICK_QUESTIONS);
   const audioElRef = useRef<HTMLAudioElement | null>(null);
+  const synthUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
   const handleStopAndSendRef = useRef<() => Promise<void>>(async () => {});
   const { start, stop, level } = useRecorder({
@@ -109,6 +110,42 @@ export default function KioskPage() {
     setPhase("idle");
     markInteraction();
   }, [unlocked, unlock, setPhase, markInteraction]);
+
+  const speakWithBrowserTts = useCallback(
+    (text: string, lang: Lang): boolean => {
+      if (!text.trim()) return false;
+      if (typeof window === "undefined" || !("speechSynthesis" in window)) return false;
+
+      const synth = window.speechSynthesis;
+      try {
+        synth.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = lang === "ar" || lang === "darija" ? "ar-MA" : "fr-FR";
+        utter.rate = 1;
+        utter.pitch = 1;
+
+        utter.onstart = () => setPhase("speaking");
+        utter.onend = () => {
+          synthUtteranceRef.current = null;
+          setPhase("idle");
+        };
+        utter.onerror = (ev) => {
+          console.warn("[audio] browser TTS error:", ev.error);
+          synthUtteranceRef.current = null;
+          setPhase("idle");
+        };
+
+        synthUtteranceRef.current = utter;
+        synth.speak(utter);
+        return true;
+      } catch (err) {
+        console.warn("[audio] browser TTS unavailable:", err);
+        synthUtteranceRef.current = null;
+        return false;
+      }
+    },
+    [setPhase],
+  );
 
   const sendChat = useCallback(
     async (payload: FormData | { text: string }) => {
@@ -151,7 +188,8 @@ export default function KioskPage() {
         if (data.audioUrl) {
           setPhase("speaking");
         } else {
-          setPhase("idle");
+          const spoke = speakWithBrowserTts(data.output ?? "", lang);
+          if (!spoke) setPhase("idle");
         }
       } catch (err) {
         console.error("[chat] failed", err);
@@ -165,13 +203,19 @@ export default function KioskPage() {
         setPhase("error");
       }
     },
-    [pushMessage, sessionId, setAudio, setError, setLang, setPhase],
+    [pushMessage, sessionId, setAudio, setError, setLang, setPhase, speakWithBrowserTts],
   );
 
   // Drive the audio element when audioUrl changes
   useEffect(() => {
     const el = audioElRef.current;
     if (!el || !audioUrl) return;
+
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      synthUtteranceRef.current = null;
+    }
+
     console.info(
       "[audio] incoming clip:",
       audioUrl.slice(0, 48),
@@ -206,6 +250,15 @@ export default function KioskPage() {
     };
   }, [audioUrl, setPhase]);
 
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      synthUtteranceRef.current = null;
+    };
+  }, []);
+
   const handleMicPress = useCallback(async () => {
     markInteraction();
     handleFirstTap();
@@ -217,6 +270,10 @@ export default function KioskPage() {
     if (phase === "thinking" || phase === "speaking") {
       // user wants to interrupt — stop audio, go back to idle
       audioElRef.current?.pause();
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      synthUtteranceRef.current = null;
       setPhase("idle");
       return;
     }

@@ -34,6 +34,51 @@ type LegacyN8nJson = {
   sessionId?: string;
 };
 
+function clipForTts(text: string, maxChars: number): string {
+  const compact = text.replace(/\s+/g, " ").trim();
+  if (compact.length <= maxChars) return compact;
+
+  const sliced = compact.slice(0, maxChars);
+  const sentenceCut = Math.max(
+    sliced.lastIndexOf(". "),
+    sliced.lastIndexOf("! "),
+    sliced.lastIndexOf("? "),
+    sliced.lastIndexOf("؛ "),
+    sliced.lastIndexOf("; "),
+  );
+
+  if (sentenceCut >= Math.floor(maxChars * 0.45)) {
+    return sliced.slice(0, sentenceCut + 1).trim();
+  }
+
+  return `${sliced.slice(0, Math.max(12, maxChars - 1)).trim()}…`;
+}
+
+function prepareTtsText(output: string): string {
+  const configured = Number(process.env.ELEVENLABS_MAX_CHARS ?? "180");
+  const maxChars = Number.isFinite(configured)
+    ? Math.min(260, Math.max(24, Math.floor(configured)))
+    : 180;
+  return clipForTts(output, maxChars);
+}
+
+function quotaRetryLength(detail: string, currentLength: number): number | null {
+  const m = detail.match(/have\s+(\d+)\s+credits\s+remaining[^\d]+(\d+)\s+credits\s+are\s+required/i);
+  if (!m) return null;
+
+  const remaining = Number(m[1]);
+  const required = Number(m[2]);
+  if (!Number.isFinite(remaining) || !Number.isFinite(required) || remaining <= 0 || required <= 0) {
+    return null;
+  }
+
+  if (remaining >= required) return null;
+
+  const ratio = remaining / required;
+  const suggested = Math.floor(currentLength * ratio) - 1;
+  return Math.max(20, Math.min(currentLength - 1, suggested));
+}
+
 function ttsCacheKey(text: string): string {
   const normalizedText = text
     .normalize("NFD")
@@ -50,15 +95,41 @@ function ttsCacheKey(text: string): string {
 async function synthesizeToAudioUrl(output: string): Promise<string | null> {
   if (!output.trim()) return null;
 
-  const key = ttsCacheKey(output);
+  let ttsText = prepareTtsText(output);
+  let key = ttsCacheKey(ttsText);
+
   const cachedId = getAudioIdByText(key);
   if (cachedId) {
-    console.info("[/api/chat] tts cache hit:", `id=${cachedId}`, `outputLen=${output.length}`);
+    console.info("[/api/chat] tts cache hit:", `id=${cachedId}`, `outputLen=${output.length}`, `ttsLen=${ttsText.length}`);
     return `/api/audio/${cachedId}`;
   }
 
   try {
-    const tts = await synthesize(output);
+    let tts = await synthesize(ttsText);
+
+    if (
+      !tts.ok &&
+      tts.reason === "upstream" &&
+      /quota_exceeded/i.test(tts.detail) &&
+      ttsText.length > 20
+    ) {
+      const retryLen = quotaRetryLength(tts.detail, ttsText.length);
+      if (retryLen && retryLen < ttsText.length) {
+        const reduced = clipForTts(ttsText, retryLen);
+        const reducedKey = ttsCacheKey(reduced);
+        const reducedCachedId = getAudioIdByText(reducedKey);
+        if (reducedCachedId) {
+          console.info("[/api/chat] tts reduced cache hit:", `id=${reducedCachedId}`, `ttsLen=${reduced.length}`);
+          return `/api/audio/${reducedCachedId}`;
+        }
+
+        console.warn("[/api/chat] tts quota retry:", `from=${ttsText.length}`, `to=${reduced.length}`);
+        ttsText = reduced;
+        key = reducedKey;
+        tts = await synthesize(ttsText);
+      }
+    }
+
     if (tts.ok) {
       const id = putAudio(tts.bytes, tts.mimeType, key);
       console.info(
@@ -66,6 +137,7 @@ async function synthesizeToAudioUrl(output: string): Promise<string | null> {
         `id=${id}`,
         `bytes=${tts.bytes.byteLength}`,
         `outputLen=${output.length}`,
+        `ttsLen=${ttsText.length}`,
       );
       return `/api/audio/${id}`;
     }

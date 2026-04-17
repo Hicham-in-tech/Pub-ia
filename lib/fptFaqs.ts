@@ -619,6 +619,41 @@ function rankedFaqs(query: string): Array<{ faq: FaqItem; score: number }> {
   );
 }
 
+export type BestFaqHit = {
+  faq: FaqItem;
+  score: number;
+  strong: boolean;
+};
+
+export function getBestFaqHit(query: string): BestFaqHit | null {
+  const ranked = rankedFaqs(query);
+  if (ranked.length === 0) return null;
+
+  const best = ranked[0];
+  if (!best) return null;
+
+  const queryNorm = normalize(query);
+  const questionNorm = normalize(best.faq.question);
+  const queryTokens = expandTokens(tokenize(query));
+  const targetTokens = new Set(
+    tokenize(`${best.faq.question} ${best.faq.answer} ${best.faq.category}`),
+  );
+
+  let overlap = 0;
+  for (const token of queryTokens) {
+    if (targetTokens.has(token)) overlap += 1;
+  }
+
+  const threshold = queryTokens.length <= 2 ? 7.2 : 9.2;
+  const overlapNeeded = queryTokens.length <= 1 ? 1 : 2;
+  const strong =
+    (queryNorm.length >= 8 && questionNorm.includes(queryNorm)) ||
+    best.score >= threshold ||
+    overlap >= overlapNeeded;
+
+  return { faq: best.faq, score: best.score, strong };
+}
+
 function resolveTopicByKeywords(queryTokens: string[]): TopicId | null {
   if (queryTokens.length === 0) return null;
 

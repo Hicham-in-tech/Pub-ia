@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { putAudio } from "@/lib/audioCache";
+import { getAudioIdByText, putAudio } from "@/lib/audioCache";
 import { appendSessionTurn, getSessionTurns } from "@/lib/chatMemory";
-import { proposeFollowUpQuestions, searchFaqs } from "@/lib/fptFaqs";
+import { getBestFaqHit, proposeFollowUpQuestions, searchFaqs } from "@/lib/fptFaqs";
 import { transcribeAudio } from "@/lib/groq";
 import { askMistral } from "@/lib/mistral";
 import { synthesize } from "@/lib/elevenlabs";
@@ -33,6 +33,57 @@ type LegacyN8nJson = {
   message?: string;
   sessionId?: string;
 };
+
+function ttsCacheKey(text: string): string {
+  const normalizedText = text
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const voiceId = process.env.ELEVENLABS_VOICE_ID ?? "iP95p4xoKVk53GoZ742B";
+  const modelId = process.env.ELEVENLABS_MODEL_ID ?? "eleven_flash_v2_5";
+  return `${voiceId}|${modelId}|${normalizedText}`;
+}
+
+async function synthesizeToAudioUrl(output: string): Promise<string | null> {
+  if (!output.trim()) return null;
+
+  const key = ttsCacheKey(output);
+  const cachedId = getAudioIdByText(key);
+  if (cachedId) {
+    console.info("[/api/chat] tts cache hit:", `id=${cachedId}`, `outputLen=${output.length}`);
+    return `/api/audio/${cachedId}`;
+  }
+
+  try {
+    const tts = await synthesize(output);
+    if (tts.ok) {
+      const id = putAudio(tts.bytes, tts.mimeType, key);
+      console.info(
+        "[/api/chat] tts cached:",
+        `id=${id}`,
+        `bytes=${tts.bytes.byteLength}`,
+        `outputLen=${output.length}`,
+      );
+      return `/api/audio/${id}`;
+    }
+
+    if (tts.reason === "upstream") {
+      console.error("[/api/chat] elevenlabs upstream error:", tts.status, tts.detail.slice(0, 200));
+    } else if (tts.reason === "network") {
+      console.error("[/api/chat] elevenlabs network error:", tts.detail);
+    } else {
+      console.warn("[/api/chat] tts skipped:", tts.reason);
+    }
+    return null;
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[/api/chat] tts threw unexpectedly:", msg);
+    return null;
+  }
+}
 
 function upstreamDebug(status: number, text: string): Record<string, unknown> {
   if (IS_DEV) return { upstreamStatus: status, upstreamBody: text.slice(0, 4000) };
@@ -115,19 +166,7 @@ async function postWithLegacyN8n(req: NextRequest): Promise<NextResponse> {
   const sessionId = body.sessionId ?? "anon";
   const suggestions = proposeFollowUpQuestions("", [], 6);
 
-  let audioUrl: string | null = null;
-  if (output.trim()) {
-    try {
-      const tts = await synthesize(output);
-      if (tts.ok) {
-        const id = putAudio(tts.bytes, tts.mimeType);
-        audioUrl = `/api/audio/${id}`;
-      }
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error("[/api/chat] tts after n8n failed:", msg);
-    }
-  }
+  const audioUrl = await synthesizeToAudioUrl(output);
 
   return NextResponse.json({ output, audioUrl, sessionId, suggestions } satisfies Reply);
 }
@@ -288,6 +327,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   const { sessionId, chatInput, source } = parsed.value;
   const retrievedFaqs = searchFaqs(chatInput, 6);
+  const bestFaqHit = getBestFaqHit(chatInput);
   const history = getSessionTurns(sessionId);
 
   if (source === "audio") {
@@ -295,18 +335,29 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   let output = "";
-  const llm = await askMistral({ chatInput, history, retrievedFaqs });
-  if (llm.ok) {
-    output = sanitizeDeadEndAnswer(llm.output, chatInput, retrievedFaqs[0]?.answer ?? null);
+  const canUseFastFaq = source === "audio" && Boolean(bestFaqHit?.strong);
+
+  if (canUseFastFaq && bestFaqHit) {
+    output = bestFaqHit.faq.answer;
+    console.info(
+      "[/api/chat] fast faq path:",
+      `faq=${bestFaqHit.faq.id}`,
+      `score=${bestFaqHit.score.toFixed(2)}`,
+    );
   } else {
-    if (llm.reason === "upstream") {
-      console.error("[/api/chat] mistral upstream error:", llm.status, llm.detail.slice(0, 200));
-    } else if (llm.reason === "network") {
-      console.error("[/api/chat] mistral network error:", llm.detail);
+    const llm = await askMistral({ chatInput, history, retrievedFaqs });
+    if (llm.ok) {
+      output = sanitizeDeadEndAnswer(llm.output, chatInput, retrievedFaqs[0]?.answer ?? null);
     } else {
-      console.warn("[/api/chat] mistral fallback:", llm.reason);
+      if (llm.reason === "upstream") {
+        console.error("[/api/chat] mistral upstream error:", llm.status, llm.detail.slice(0, 200));
+      } else if (llm.reason === "network") {
+        console.error("[/api/chat] mistral network error:", llm.detail);
+      } else {
+        console.warn("[/api/chat] mistral fallback:", llm.reason);
+      }
+      output = fallbackReply(chatInput, retrievedFaqs[0]?.answer ?? null);
     }
-    output = fallbackReply(chatInput, retrievedFaqs[0]?.answer ?? null);
   }
 
   const suggestions = proposeFollowUpQuestions(chatInput, retrievedFaqs, 6);
@@ -314,37 +365,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   appendSessionTurn(sessionId, "user", chatInput);
   appendSessionTurn(sessionId, "assistant", output);
 
-  // Fire TTS directly against ElevenLabs. Synthesis failures don't fail the
-  // whole request — the client just shows text without audio.
-  let audioUrl: string | null = null;
-  if (output.trim()) {
-    try {
-      const tts = await synthesize(output);
-      if (tts.ok) {
-        const id = putAudio(tts.bytes, tts.mimeType);
-        audioUrl = `/api/audio/${id}`;
-        console.info(
-          "[/api/chat] tts cached:",
-          `id=${id}`,
-          `bytes=${tts.bytes.byteLength}`,
-          `outputLen=${output.length}`,
-        );
-      } else if (tts.reason === "upstream") {
-        console.error(
-          "[/api/chat] elevenlabs upstream error:",
-          tts.status,
-          tts.detail.slice(0, 200),
-        );
-      } else if (tts.reason === "network") {
-        console.error("[/api/chat] elevenlabs network error:", tts.detail);
-      } else {
-        console.warn("[/api/chat] tts skipped:", tts.reason);
-      }
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error("[/api/chat] tts threw unexpectedly:", msg);
-    }
-  }
+  // TTS failures do not fail the whole request — the client still gets text.
+  const audioUrl = await synthesizeToAudioUrl(output);
 
   const reply: Reply = { output, audioUrl, sessionId, suggestions };
   return NextResponse.json(reply);

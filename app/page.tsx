@@ -76,7 +76,7 @@ export default function KioskPage() {
 
   const handleStopAndSendRef = useRef<() => Promise<void>>(async () => {});
   const { start, stop, level } = useRecorder({
-    silenceMs: 1500,
+    silenceMs: 900,
     silenceThreshold: 0.04,
     maxMs: 12_000,
     onAutoStop: () => {

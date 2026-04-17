@@ -33,3 +33,4 @@ pnpm dev
 - Voice output via ElevenLabs and cached on `app/api/audio/[id]`
 
 See `SETUP.md` for full developer setup and `KIOSK.md` for production deployment.
+# Pub-ia 

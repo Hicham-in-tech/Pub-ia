@@ -346,6 +346,14 @@ export default function KioskPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
             >
+              <Image
+                src="/fpt-logo-blue.png"
+                alt="Faculte Polydisciplinaire Taroudant"
+                width={1800}
+                height={430}
+                className="h-auto w-full max-w-[760px] object-contain"
+                priority
+              />
               <motion.span
                 className="chip-sticker"
                 style={{ background: "var(--color-saffron)" }}

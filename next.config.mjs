@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  outputFileTracingRoot: import.meta.dirname,
   serverExternalPackages: ["msw"],
   experimental: {
     optimizePackageImports: ["framer-motion"],

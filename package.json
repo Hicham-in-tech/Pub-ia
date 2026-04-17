@@ -4,11 +4,11 @@
   "private": true,
   "description": "Voice-first chatbot kiosk for FPT Taroudant — built by Zyllux Digital",
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/next-win.mjs dev",
     "dev:mock": "NEXT_PUBLIC_USE_MOCKS=true next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "build": "node scripts/next-win.mjs build",
+    "start": "node scripts/next-win.mjs start",
+    "lint": "node scripts/next-win.mjs lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"

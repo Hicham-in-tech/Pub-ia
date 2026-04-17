@@ -158,7 +158,7 @@ function fallbackReply(chatInput: string, bestAnswer: string | null): string {
 function sanitizeDeadEndAnswer(output: string, chatInput: string, bestAnswer: string | null): string {
   const normalized = output.toLowerCase();
   const deadEndRe =
-    /(je\s+n('| )?ai\s+pas|je\s+ne\s+sais\s+pas|i\s+do\s+not\s+know|i\s+don't\s+know|ما\s*عرفتش|لا\s+اعرف|لا\s+أعرف)/i;
+    /(je\s+n('| )?ai\s+pas|je\s+ne\s+sais\s+pas|je\s+ne\s+dispose\s+pas|aucune\s+information|pas\s+d'information|i\s+do\s+not\s+know|i\s+don't\s+know|cannot\s+find|can\s*'\s*t\s+find|not\s+enough\s+information|ما\s*عرفتش|لا\s+اعرف|لا\s+أعرف)/i;
 
   if (deadEndRe.test(normalized)) {
     return fallbackReply(chatInput, bestAnswer);

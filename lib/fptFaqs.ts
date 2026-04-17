@@ -172,6 +172,163 @@ const DEFAULT_SUGGESTIONS = [
   "Comment contacter la FPT ?",
 ];
 
+type TopicId =
+  | "formations"
+  | "sciences-info"
+  | "admissions"
+  | "examens"
+  | "contact"
+  | "vie-etudiante"
+  | "research"
+  | "events";
+
+const TOPIC_KEYWORDS: Record<TopicId, string[]> = {
+  formations: [
+    "formation",
+    "formations",
+    "filiere",
+    "filieres",
+    "filières",
+    "master",
+    "masters",
+    "licence",
+    "licences",
+    "programme",
+    "parcours",
+    "orientation",
+    "etudier",
+    "study",
+    "تكوين",
+    "ماستر",
+    "إجازة",
+    "شعبة",
+  ],
+  "sciences-info": [
+    "info",
+    "informatique",
+    "ia",
+    "intelligence",
+    "artificielle",
+    "science",
+    "sciences",
+    "siance",
+    "scinece",
+    "data",
+    "big",
+    "computer",
+    "programming",
+    "mip",
+    "gi",
+    "bbe",
+    "cacq",
+    "eeia",
+    "sie",
+  ],
+  admissions: [
+    "inscription",
+    "admission",
+    "admissions",
+    "candidature",
+    "dossier",
+    "preinscription",
+    "tawjihi",
+    "selection",
+    "documents",
+    "document",
+    "inscrire",
+    "register",
+    "تسجيل",
+    "ترشيح",
+    "ولوج",
+  ],
+  examens: [
+    "exam",
+    "examen",
+    "examens",
+    "rattrapage",
+    "notes",
+    "note",
+    "session",
+    "calendrier",
+    "emploi",
+    "horaire",
+    "groupes",
+    "tp",
+    "td",
+    "امتحان",
+    "نقط",
+  ],
+  contact: [
+    "contact",
+    "telephone",
+    "tel",
+    "email",
+    "mail",
+    "adresse",
+    "site",
+    "web",
+    "facebook",
+    "youtube",
+    "standard",
+    "هاتف",
+    "اتصال",
+    "موقع",
+  ],
+  "vie-etudiante": [
+    "etudiant",
+    "etudiants",
+    "etudiante",
+    "amo",
+    "assurance",
+    "moodle",
+    "cours",
+    "ecours",
+    "ene",
+    "numerique",
+    "club",
+    "association",
+    "طالب",
+    "طلبة",
+  ],
+  research: [
+    "recherche",
+    "research",
+    "publication",
+    "publications",
+    "doctorale",
+    "doctorat",
+    "projet",
+    "projets",
+    "brevets",
+    "cooperation",
+  ],
+  events: [
+    "evenement",
+    "events",
+    "seminaire",
+    "séminaire",
+    "actualite",
+    "news",
+    "avis",
+    "annonce",
+    "notices",
+    "notice",
+    "ندوة",
+    "إعلان",
+  ],
+};
+
+const TOPIC_CATEGORY_ORDER: Record<TopicId, string[]> = {
+  formations: ["formations", "masters", "licences", "licences-pro", "departments", "admissions"],
+  "sciences-info": ["formations", "masters", "licences", "departments", "admissions"],
+  admissions: ["admissions", "formations", "masters", "licences", "contact"],
+  examens: ["examens", "notices", "vie-etudiante", "admissions"],
+  contact: ["contact", "about", "vie-etudiante"],
+  "vie-etudiante": ["vie-etudiante", "examens", "notices", "contact"],
+  research: ["research", "about", "contact"],
+  events: ["events", "notices", "vie-etudiante", "contact"],
+};
+
 const data = structuredRowsRaw as StructuredData;
 
 function normalize(input: string): string {
@@ -462,6 +619,90 @@ function rankedFaqs(query: string): Array<{ faq: FaqItem; score: number }> {
   );
 }
 
+function resolveTopicByKeywords(queryTokens: string[]): TopicId | null {
+  if (queryTokens.length === 0) return null;
+
+  let bestTopic: TopicId | null = null;
+  let bestScore = 0;
+
+  for (const topic of Object.keys(TOPIC_KEYWORDS) as TopicId[]) {
+    const keywords = TOPIC_KEYWORDS[topic];
+    let score = 0;
+
+    for (const token of queryTokens) {
+      if (keywords.includes(token)) {
+        score += 3;
+        continue;
+      }
+
+      for (const keyword of keywords) {
+        if (
+          (token.startsWith(keyword) || keyword.startsWith(token)) &&
+          Math.min(token.length, keyword.length) >= 3
+        ) {
+          score += 1.15;
+        } else if (
+          (token.includes(keyword) || keyword.includes(token)) &&
+          Math.min(token.length, keyword.length) >= 4
+        ) {
+          score += 0.58;
+        }
+      }
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestTopic = topic;
+    }
+  }
+
+  return bestScore >= 1.1 ? bestTopic : null;
+}
+
+function keywordFallbackFaqs(
+  query: string,
+  ranked: Array<{ faq: FaqItem; score: number }>,
+  limit: number,
+): FaqItem[] {
+  const out: FaqItem[] = [];
+  const seen = new Set<string>();
+
+  const push = (faq: FaqItem) => {
+    if (seen.has(faq.id)) return;
+    seen.add(faq.id);
+    out.push(faq);
+  };
+
+  for (const hit of ranked) {
+    if (hit.score <= 0) continue;
+    push(hit.faq);
+    if (out.length >= Math.min(limit, 3)) break;
+  }
+
+  const queryTokens = expandTokens(tokenize(query));
+  const topic = resolveTopicByKeywords(queryTokens);
+  const categories = topic
+    ? TOPIC_CATEGORY_ORDER[topic]
+    : ["formations", "masters", "licences", "admissions", "departments", "contact"];
+
+  for (const category of categories) {
+    const categoryHit = ranked.find((hit) => hit.faq.category === category);
+    if (categoryHit) push(categoryHit.faq);
+
+    const anchor = FAQS.find((faq) => faq.category === category);
+    if (anchor) push(anchor);
+
+    if (out.length >= limit) return out.slice(0, limit);
+  }
+
+  for (const faq of FAQS) {
+    push(faq);
+    if (out.length >= limit) break;
+  }
+
+  return out.slice(0, limit);
+}
+
 export function searchFaqs(query: string, limit = 6): FaqItem[] {
   const hits = rankedFaqs(query);
   if (hits.length === 0) return [];
@@ -475,7 +716,7 @@ export function searchFaqs(query: string, limit = 6): FaqItem[] {
   const loose = hits.filter((hit) => hit.score > 0.85).slice(0, limit);
   if (loose.length > 0) return loose.map((hit) => hit.faq);
 
-  return [];
+  return keywordFallbackFaqs(query, hits, limit);
 }
 
 export function proposeFollowUpQuestions(query: string, matches: FaqItem[], limit = 6): string[] {

@@ -1,0 +1,224 @@
+{
+  "institution": {
+    "name": "Faculté Polydisciplinaire de Taroudant",
+    "abbreviation": "FPT",
+    "university": "Université Ibn Zohr (UIZ)",
+    "founded": 2010,
+    "dean": "Mr. Hassan HMAYZ",
+    "website": "http://www.fpt.ac.ma",
+    "facebook": "https://www.facebook.com/siteFPT",
+    "youtube": "https://www.youtube.com/channel/UCJkXdGXw4vGU7QhHNa61OTA",
+    "online_courses": "http://ecours-fpt.uiz.ac.ma",
+    "digital_space": "http://ene.fpt.ac.ma",
+    "student_health_insurance": "https://amoe.uiz.ac.ma"
+  },
+
+  "departments": [
+    "Physique-Chimie",
+    "Mathématiques et Informatique",
+    "Sciences Humaines & Sociales",
+    "Sciences Économiques & Gestion",
+    "Sciences & Techniques"
+  ],
+
+  "formations": {
+    "masters": [
+      {
+        "title": "Master Big Data et Intelligence Artificielle",
+        "department": "Mathématiques et Informatique",
+        "url": "http://www.fpt.ac.ma/index.php/master-big-data-et-intelligence-artificielle"
+      },
+      {
+        "title": "Master Stratégie des Organisations et Transformation Numérique",
+        "department": "Sciences Économiques & Gestion",
+        "url": "http://www.fpt.ac.ma/index.php/master-strategie-des-organisations-et-transformation-numerique"
+      },
+      {
+        "title": "Master Management et Commerce International",
+        "department": "Sciences Économiques & Gestion",
+        "url": "http://www.fpt.ac.ma/index.php/master-management-et-commerce-international"
+      },
+      {
+        "title": "Master Méthodes d'Analyse et Contrôle de la Qualité",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/master-methodes-d-analyse-et-controle-de-la-qualite"
+      },
+      {
+        "title": "Master Communication, Transition Numérique et Développement Territorial",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/master-communication-transition-numerique-et-developpement-territorial"
+      },
+      {
+        "title": "ماستر فقه الحقوق",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/ماستر-فقه-الحقوق"
+      },
+      {
+        "title": "ماستر التواصل",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/ماستر-التواصل"
+      },
+      {
+        "title": "Master Spécialisé Sciences Géomatiques Appliquées (SGARNE)",
+        "department": "Sciences & Techniques",
+        "url": "http://www.fpt.ac.ma/index.php/master-specialise-sgarne"
+      },
+      {
+        "title": "Master Spécialisé Procédés d'Analyse et Contrôle Qualité",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/master-specialise-procedes-d-analyse-et-controle-qualite"
+      }
+    ],
+
+    "licences_fondamentales": [
+      {
+        "title": "Licence Fondamentale Sciences de la Vie (SV)",
+        "department": "Sciences & Techniques",
+        "url": "http://www.fpt.ac.ma/index.php/licence-fondamentale-sciences-de-la-vie"
+      },
+      {
+        "title": "Sciences Économiques et Gestion",
+        "department": "Sciences Économiques & Gestion",
+        "url": "http://www.fpt.ac.ma/index.php/sciences-economiques-et-gestion"
+      },
+      {
+        "title": "Tronc Commun Physique-Chimie",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/tronc-commun-physique-chimie"
+      },
+      {
+        "title": "إجازة في الشريعة والقانون والعلوم الشرعية",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/إجازة-في-الشريعة-والقانون"
+      },
+      {
+        "title": "Filière Langues Étrangères Appliquées (LEA)",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/filiere-langues-etrangeres-appliquees"
+      }
+    ],
+
+    "licences_professionnelles": [
+      {
+        "title": "Licence en Génie Informatique",
+        "department": "Mathématiques et Informatique",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-genie-informatique"
+      },
+      {
+        "title": "Licence Professionnelle Génie Informatique",
+        "department": "Mathématiques et Informatique",
+        "url": "http://www.fpt.ac.ma/index.php/licence-professionnelle-genie-informatique"
+      },
+      {
+        "title": "Licence en Mathématiques et Applications aux Sciences de l'Ingénieur",
+        "department": "Sciences & Techniques",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-mathematiques-et-applications-aux-sciences-de-l-ingenieur"
+      },
+      {
+        "title": "Licence en Biosciences, Biotechnologie et Environnement (BBE)",
+        "department": "Sciences & Techniques",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-biosciences-biotechnologie-et-environnement"
+      },
+      {
+        "title": "Licence Professionnelle Agroalimentaire",
+        "department": "Sciences & Techniques",
+        "url": "http://www.fpt.ac.ma/index.php/licence-professionnelle-agroalimentaire"
+      },
+      {
+        "title": "Licence en E-Business et Marketing Digital",
+        "department": "Sciences Économiques & Gestion",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-e-business-et-marketing-digital"
+      },
+      {
+        "title": "Licence en Entrepreneuriat et Développement des Business",
+        "department": "Sciences Économiques & Gestion",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-entrepreneuriat-et-developpement-des-business"
+      },
+      {
+        "title": "Licence en Langues Étrangères Appliquées – Communication Professionnelle",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-langues-etrangeres-appliquees-communication-professionnelle"
+      },
+      {
+        "title": "Licence en Média Digital",
+        "department": "Sciences Humaines & Sociales",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-media-digital"
+      },
+      {
+        "title": "Licence en Sciences et Ingénierie de l'Eau (SIE)",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-sciences-et-ingerierie-de-l-eau"
+      },
+      {
+        "title": "Licence en Efficacité Énergétique Industrielle et Agricole (EEIA)",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-efficacite-energetique-industrielle-et-agricole"
+      },
+      {
+        "title": "Licence en Chimie Analytique et Contrôle Qualité (CACQ)",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-chimie-analytique-et-controle-qualite"
+      },
+      {
+        "title": "Licence en Valorisation des Ressources Halieutiques et Développement Durable",
+        "department": "Physique-Chimie",
+        "url": "http://www.fpt.ac.ma/index.php/licence-en-valorisation-des-ressources-halieutiques-et-developpement-durable"
+      }
+    ]
+  },
+
+  "student_space": {
+    "timetables": "http://www.fpt.ac.ma/index.php/emplois-du-temps",
+    "exam_calendar": "http://www.fpt.ac.ma/index.php/calendrier-des-examens",
+    "exam_rules": "http://www.fpt.ac.ma/index.php/reglement-des-examens",
+    "group_lists": "http://www.fpt.ac.ma/index.php/list-des-groupes",
+    "student_notices": "http://www.fpt.ac.ma/index.php/avis-aux-etudiants",
+    "clubs_associations": "http://www.fpt.ac.ma/index.php/clubs-associations",
+    "mooc_platform": "http://ecours-fpt.uiz.ac.ma/login/index.php",
+    "digital_space": "http://ene.fpt.ac.ma",
+    "health_insurance_amo": "https://amoe.uiz.ac.ma"
+  },
+
+  "research": {
+    "scientific_commission": "http://www.fpt.ac.ma/index.php/commission-de-la-recherche-scientifique",
+    "research_structures": "http://www.fpt.ac.ma/index.php/structures-de-recherche",
+    "international_cooperation": "http://www.fpt.ac.ma/index.php/cooperation-et-collaboration",
+    "researcher_mobility": "http://www.fpt.ac.ma/index.php/mobilite-chercheurs",
+    "publications": "http://www.fpt.ac.ma/index.php/publications24",
+    "communications": "http://www.fpt.ac.ma/index.php/communications24",
+    "patents": "http://www.fpt.ac.ma/index.php/brevets",
+    "research_projects": "http://www.fpt.ac.ma/index.php/projets-de-recherche",
+    "doctoral_training": "http://www.fpt.ac.ma/index.php/formation-doctorale",
+    "internships_pfe": "http://www.fpt.ac.ma/index.php/stages-et-pfe",
+    "university_habilitation": "http://www.fpt.ac.ma/index.php/habilitation-universitaire"
+  },
+
+  "recent_events": [
+    { "date": "2026-04-13", "title": "Séminaire", "url": "http://www.fpt.ac.ma/index.php/séminaire8" },
+    { "date": "2026-04-09", "title": "Terra Madre Day", "url": "http://www.fpt.ac.ma/index.php/terra+madre+day" },
+    { "date": "2026-04-08", "title": "محاضرة افتتاحية", "url": "http://www.fpt.ac.ma/index.php/محاضرة+افتتاحية" },
+    { "date": "2026-04-07", "title": "Visite Pédagogique (BBE S6)", "url": "http://www.fpt.ac.ma/index.php/visite+pédagogique" },
+    { "date": "2026-04-07", "title": "Séminaire", "url": "http://www.fpt.ac.ma/index.php/séminaire7" },
+    { "date": "2026-04-06", "title": "لقاء دولي: أيام اللغة الإسبانية", "url": "http://www.fpt.ac.ma/index.php/لقاء+دولي-+أيام+اللغة+الإسبانية" },
+    { "date": "2026-04-04", "title": "ورشة تكوينية", "url": "http://www.fpt.ac.ma/index.php/ورشة+تكوينية" }
+  ],
+
+  "recent_student_notices": [
+    { "date": "2026-04-10", "title": "Avis aux étudiants S4 Chimie", "filières": ["CACQ", "SIE"] },
+    { "date": "2026-04-09", "title": "AVIS AUX ETUDIANTS TC_PC et GI Semestre 2", "filières": ["GI", "PC"] },
+    { "date": "2026-04-07", "title": "AVIS TP filière BBE S2", "filières": ["BBE"] },
+    { "date": "2026-04-06", "title": "إعلان هام للطلبة", "filières": [] },
+    { "date": "2026-04-06", "title": "AVIS AUX ÉTUDIANTS LEA ET MEDIA S6", "filières": ["MD", "LEA"] },
+    { "date": "2026-04-02", "title": "Aux étudiants MIP_GI S2", "filières": ["GI"] },
+    { "date": "2026-04-02", "title": "Avis aux étudiants GI S6", "filières": ["GI"] },
+    { "date": "2026-04-02", "title": "AVIS AUX ÉTUDIANTS GEMD S2", "filières": ["E-BMD"] },
+    { "date": "2026-03-31", "title": "AVIS TP TC_PC Semestre 2", "filières": ["PC"] },
+    { "date": "2026-03-30", "title": "AVIS TP EEIA S4", "filières": ["EEIA"] }
+  ],
+
+  "partners": [
+    { "name": "Ministère de l'Enseignement Supérieur", "url": "https://www.enssup.gov.ma/" },
+    { "name": "Conseil Supérieur de l'Éducation, de la Formation et de la Recherche Scientifique", "url": "https://www.csefrs.ma/" },
+    { "name": "Centre National pour la Recherche Scientifique et Technique", "url": "https://www.cnrst.ma/" }
+  ]
+}

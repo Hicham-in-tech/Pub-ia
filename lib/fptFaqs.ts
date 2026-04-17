@@ -1,4 +1,5 @@
-import rows from "@/lib/data/fptFaqs.json";
+import baseRows from "@/lib/data/fptFaqs.json";
+import structuredRowsRaw from "@/lib/data/fptTaroudant.json";
 
 export type FaqItem = {
   id: string;
@@ -8,7 +9,37 @@ export type FaqItem = {
   text: string;
 };
 
-export const FAQS = rows as FaqItem[];
+type ProgramItem = { title: string; department: string; url: string };
+type EventItem = { date: string; title: string; url: string };
+type NoticeItem = { date: string; title: string; "filières": string[] };
+type PartnerItem = { name: string; url: string };
+
+type StructuredData = {
+  institution: {
+    name: string;
+    abbreviation: string;
+    university: string;
+    founded: number;
+    dean: string;
+    website: string;
+    facebook: string;
+    youtube: string;
+    online_courses: string;
+    digital_space: string;
+    student_health_insurance: string;
+  };
+  departments: string[];
+  formations: {
+    masters: ProgramItem[];
+    licences_fondamentales: ProgramItem[];
+    licences_professionnelles: ProgramItem[];
+  };
+  student_space: Record<string, string>;
+  research: Record<string, string>;
+  recent_events: EventItem[];
+  recent_student_notices: NoticeItem[];
+  partners: PartnerItem[];
+};
 
 const STOPWORDS = new Set([
   "a",
@@ -37,6 +68,15 @@ const STOPWORDS = new Set([
   "sur",
   "un",
   "une",
+  "quoi",
+  "quel",
+  "quelle",
+  "quelles",
+  "quels",
+  "svp",
+  "stp",
+  "pls",
+  "please",
   "the",
   "is",
   "are",
@@ -48,6 +88,13 @@ const STOPWORDS = new Set([
 
 const TOKEN_ALIASES: Record<string, string[]> = {
   fpt: ["faculte", "polydisciplinaire", "taroudant"],
+  formation: ["filiere", "filières", "filiere", "parcours", "programme", "licence", "master"],
+  filiere: ["formation", "parcours", "programme"],
+  filières: ["formation", "parcours", "programme"],
+  orientation: ["formation", "filiere", "master", "licence"],
+  inscription: ["admission", "candidature", "preinscription", "dossier", "tawjihi"],
+  admission: ["inscription", "candidature", "preinscription", "dossier"],
+  contact: ["telephone", "email", "site", "adresse"],
   ia: ["intelligence", "artificielle", "big", "data"],
   ta: ["temps", "amenage", "alternance"],
   lea: ["langues", "etrangeres", "appliquees"],
@@ -59,12 +106,79 @@ const TOKEN_ALIASES: Record<string, string[]> = {
   sie: ["sciences", "ingenierie", "eau"],
   vrhdd: ["valorisation", "ressources", "halieutiques", "developpement", "durable"],
   mib: ["mathematiques", "informatique"],
+  emploi: ["emploi", "temps", "horaire"],
+  examens: ["calendrier", "reglement", "session", "rattrapage"],
 };
+
+const CATEGORY_SUGGESTIONS: Record<string, string[]> = {
+  formations: [
+    "Quelles formations sont disponibles à la FPT ?",
+    "Quels sont les masters proposés à la FPT ?",
+    "Quelles licences professionnelles existent à la FPT ?",
+  ],
+  masters: [
+    "Quels masters peut-on intégrer à la FPT ?",
+    "Comment candidater à un master de la FPT ?",
+    "Le master Big Data et IA est-il disponible ?",
+  ],
+  licences: [
+    "Quelles licences sont proposées à la FPT ?",
+    "Quels parcours existent en Sciences et Techniques ?",
+    "La filière Génie Informatique est-elle disponible ?",
+  ],
+  admissions: [
+    "Comment s'inscrire en licence à la FPT ?",
+    "Quels documents faut-il pour la candidature ?",
+    "Où suivre les avis aux étudiants ?",
+  ],
+  departments: [
+    "Quels sont les départements de la FPT ?",
+    "Quelle formation dépend du département Physique-Chimie ?",
+    "Que propose le département Mathématiques et Informatique ?",
+  ],
+  contact: [
+    "Quel est le site officiel de la FPT ?",
+    "Comment contacter la FPT ?",
+    "Quel est le numéro du standard de la FPT ?",
+  ],
+  examens: [
+    "Où consulter le calendrier des examens ?",
+    "Où se trouve le règlement des examens ?",
+    "Comment trouver les listes des groupes ?",
+  ],
+  "vie-etudiante": [
+    "Comment accéder à l'espace numérique des étudiants ?",
+    "Où se connecte-t-on aux cours en ligne ?",
+    "Comment accéder à l'assurance AMO étudiante ?",
+  ],
+  research: [
+    "Où consulter les structures de recherche ?",
+    "Comment accéder aux publications scientifiques ?",
+    "Où trouver les informations de formation doctorale ?",
+  ],
+  notices: [
+    "Y a-t-il des avis récents pour GI ?",
+    "Y a-t-il des avis récents pour BBE ?",
+    "Où consulter tous les avis aux étudiants ?",
+  ],
+};
+
+const DEFAULT_SUGGESTIONS = [
+  "Quelles formations sont disponibles à la FPT ?",
+  "Quels masters peut-on intégrer à la FPT ?",
+  "Comment s'inscrire en licence à la FPT ?",
+  "Où trouver les emplois du temps ?",
+  "Quel est le lien des avis aux étudiants ?",
+  "Comment contacter la FPT ?",
+];
+
+const data = structuredRowsRaw as StructuredData;
 
 function normalize(input: string): string {
   return input
     .normalize("NFD")
     .replace(/\p{M}/gu, "")
+    .replace(/[’']/g, " ")
     .toLowerCase()
     .replace(/\s+/g, " ")
     .trim();
@@ -82,10 +196,228 @@ function expandTokens(tokens: string[]): string[] {
     const aliases = TOKEN_ALIASES[token];
     if (!aliases) continue;
     for (const alias of aliases) {
-      if (alias.length > 1 && !STOPWORDS.has(alias)) expanded.add(alias);
+      const aliasNorm = normalize(alias);
+      if (aliasNorm.length > 1 && !STOPWORDS.has(aliasNorm)) expanded.add(aliasNorm);
     }
   }
   return [...expanded];
+}
+
+function compactLabel(input: string): string {
+  return input
+    .replaceAll("_", " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function makeFaq(id: string, category: string, question: string, answer: string): FaqItem {
+  return {
+    id,
+    category,
+    question,
+    answer,
+    text: `Q: ${question}\nR: ${answer}`,
+  };
+}
+
+function buildStructuredFaqs(source: StructuredData): FaqItem[] {
+  const generated: FaqItem[] = [];
+
+  generated.push(
+    makeFaq(
+      "structured-inst-001",
+      "about",
+      "Quel est le nom officiel de la FPT et son université de rattachement ?",
+      `${source.institution.name} (${source.institution.abbreviation}) est rattachée à ${source.institution.university}. Fondée en ${source.institution.founded}, elle est dirigée par ${source.institution.dean}. Site officiel: ${source.institution.website}`,
+    ),
+  );
+  generated.push(
+    makeFaq(
+      "structured-inst-002",
+      "contact",
+      "Quels sont les liens numériques officiels de la FPT ?",
+      `Site: ${source.institution.website}. Facebook: ${source.institution.facebook}. YouTube: ${source.institution.youtube}. Cours en ligne: ${source.institution.online_courses}. Espace numérique: ${source.institution.digital_space}. AMO étudiante: ${source.institution.student_health_insurance}.`,
+    ),
+  );
+
+  generated.push(
+    makeFaq(
+      "structured-dept-001",
+      "departments",
+      "Quels sont les départements de la FPT ?",
+      `La FPT compte ${source.departments.length} départements: ${source.departments.join(" ; ")}.`,
+    ),
+  );
+
+  const allPrograms: Array<ProgramItem & { level: "master" | "licence-fondamentale" | "licence-professionnelle" }> = [
+    ...source.formations.masters.map((item) => ({ ...item, level: "master" as const })),
+    ...source.formations.licences_fondamentales.map((item) => ({
+      ...item,
+      level: "licence-fondamentale" as const,
+    })),
+    ...source.formations.licences_professionnelles.map((item) => ({
+      ...item,
+      level: "licence-professionnelle" as const,
+    })),
+  ];
+
+  generated.push(
+    makeFaq(
+      "structured-formations-001",
+      "formations",
+      "Quelles formations sont proposées à la FPT ?",
+      `La FPT propose ${source.formations.masters.length} masters, ${source.formations.licences_fondamentales.length} licences fondamentales et ${source.formations.licences_professionnelles.length} licences professionnelles. Posez une question précise sur une filière pour obtenir le lien direct du programme.`,
+    ),
+  );
+
+  for (const [index, program] of allPrograms.entries()) {
+    generated.push(
+      makeFaq(
+        `structured-program-${String(index + 1).padStart(3, "0")}`,
+        program.level === "master"
+          ? "masters"
+          : program.level === "licence-fondamentale"
+            ? "licences"
+            : "licences-pro",
+        `Donnez-moi des informations sur ${program.title}.`,
+        `${program.title} relève du département ${program.department}. Pour les détails officiels (conditions d'accès, modules et calendrier), consultez: ${program.url}`,
+      ),
+    );
+  }
+
+  const byDepartment = new Map<string, ProgramItem[]>();
+  for (const program of allPrograms) {
+    const list = byDepartment.get(program.department) ?? [];
+    list.push(program);
+    byDepartment.set(program.department, list);
+  }
+
+  for (const [index, department] of source.departments.entries()) {
+    const list = byDepartment.get(department) ?? [];
+    const titles = list.map((item) => item.title).join(" ; ");
+    generated.push(
+      makeFaq(
+        `structured-dept-${String(index + 2).padStart(3, "0")}`,
+        "departments",
+        `Que propose le département ${department} ?`,
+        titles
+          ? `Le département ${department} propose notamment: ${titles}.`
+          : `Le département ${department} est listé par la FPT. Consultez le site officiel pour les ouvertures de filières: ${source.institution.website}`,
+      ),
+    );
+  }
+
+  for (const [key, url] of Object.entries(source.student_space)) {
+    const label = compactLabel(key);
+    generated.push(
+      makeFaq(
+        `structured-student-${normalize(key).replace(/[^a-z0-9]+/g, "-")}`,
+        "vie-etudiante",
+        `Quel est le lien pour ${label} ?`,
+        `Le lien officiel pour ${label} est: ${url}`,
+      ),
+    );
+  }
+
+  for (const [key, url] of Object.entries(source.research)) {
+    const label = compactLabel(key);
+    generated.push(
+      makeFaq(
+        `structured-research-${normalize(key).replace(/[^a-z0-9]+/g, "-")}`,
+        "research",
+        `Où trouver ${label} ?`,
+        `Vous pouvez consulter ${label} sur: ${url}`,
+      ),
+    );
+  }
+
+  if (source.recent_events.length > 0) {
+    const eventLines = source.recent_events
+      .slice(0, 7)
+      .map((item) => `${item.date}: ${item.title} (${item.url})`)
+      .join(" ; ");
+
+    generated.push(
+      makeFaq(
+        "structured-events-001",
+        "events",
+        "Quels sont les événements récents de la FPT ?",
+        `Voici les événements récents publiés par la FPT: ${eventLines}`,
+      ),
+    );
+  }
+
+  if (source.recent_student_notices.length > 0) {
+    const noticeLines = source.recent_student_notices
+      .slice(0, 10)
+      .map((item) => {
+        const tracks = item["filières"].length > 0 ? ` [${item["filières"].join(", ")}]` : "";
+        return `${item.date}: ${item.title}${tracks}`;
+      })
+      .join(" ; ");
+
+    generated.push(
+      makeFaq(
+        "structured-notices-001",
+        "notices",
+        "Quels sont les avis récents aux étudiants ?",
+        `Avis récents publiés: ${noticeLines}. Lien général des avis: ${source.student_space.student_notices}`,
+      ),
+    );
+  }
+
+  if (source.partners.length > 0) {
+    const partnerLines = source.partners
+      .map((item) => `${item.name} (${item.url})`)
+      .join(" ; ");
+    generated.push(
+      makeFaq(
+        "structured-partners-001",
+        "partnerships",
+        "Quels sont les partenaires institutionnels mentionnés par la FPT ?",
+        `Partenaires mentionnés: ${partnerLines}`,
+      ),
+    );
+  }
+
+  return generated;
+}
+
+function dedupeFaqs(rows: FaqItem[]): FaqItem[] {
+  const seen = new Set<string>();
+  const out: FaqItem[] = [];
+
+  for (const row of rows) {
+    const key = `${normalize(row.question)}|${normalize(row.answer).slice(0, 180)}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(row);
+  }
+
+  return out;
+}
+
+const generatedRows = buildStructuredFaqs(data);
+export const FAQS = dedupeFaqs([...(baseRows as FaqItem[]), ...generatedRows]);
+
+function fuzzyTokenMatchScore(token: string, set: Set<string>): number {
+  if (set.has(token)) return 1;
+
+  let best = 0;
+  for (const candidate of set) {
+    if (candidate.length < 2) continue;
+    if (candidate.startsWith(token) || token.startsWith(candidate)) {
+      if (Math.min(candidate.length, token.length) >= 3) {
+        best = Math.max(best, 0.72);
+      }
+    } else if (candidate.includes(token) || token.includes(candidate)) {
+      if (Math.min(candidate.length, token.length) >= 4) {
+        best = Math.max(best, 0.42);
+      }
+    }
+  }
+
+  return best;
 }
 
 function scoreFaq(faq: FaqItem, queryNorm: string, queryTokens: string[]): number {
@@ -98,31 +430,92 @@ function scoreFaq(faq: FaqItem, queryNorm: string, queryTokens: string[]): numbe
 
   let score = 0;
 
-  if (queryNorm && qNorm.includes(queryNorm)) score += 18;
-  if (queryNorm && aNorm.includes(queryNorm)) score += 10;
+  if (queryNorm && qNorm === queryNorm) score += 26;
+  if (queryNorm && qNorm.includes(queryNorm)) score += 16;
+  if (queryNorm && aNorm.includes(queryNorm)) score += 9;
 
   for (const token of queryTokens) {
-    if (qTokenSet.has(token)) score += 4;
-    if (aTokenSet.has(token)) score += 1.6;
-    if (cTokenSet.has(token)) score += 2;
+    score += fuzzyTokenMatchScore(token, qTokenSet) * 4.4;
+    score += fuzzyTokenMatchScore(token, aTokenSet) * 1.8;
+    score += fuzzyTokenMatchScore(token, cTokenSet) * 2.5;
   }
 
   const queryHasArabic = /[\u0600-\u06FF]/.test(queryNorm);
-  if (queryHasArabic && /[\u0600-\u06FF]/.test(faq.answer)) score += 2;
+  if (queryHasArabic && /[\u0600-\u06FF]/.test(faq.answer)) score += 2.4;
+
+  if (queryTokens.some((token) => ["formation", "filiere", "master", "licence"].includes(token))) {
+    if (["formations", "masters", "licences", "licences-pro", "departments"].includes(faq.category)) {
+      score += 2.6;
+    }
+  }
 
   return score;
 }
 
-export function searchFaqs(query: string, limit = 6): FaqItem[] {
+function rankedFaqs(query: string): Array<{ faq: FaqItem; score: number }> {
   const queryNorm = normalize(query);
   const queryTokens = expandTokens(tokenize(query));
   if (!queryNorm) return [];
 
-  const ranked = FAQS.map((faq) => ({ faq, score: scoreFaq(faq, queryNorm, queryTokens) }))
-    .filter((row) => row.score >= 4)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, limit)
-    .map((row) => row.faq);
+  return FAQS.map((faq) => ({ faq, score: scoreFaq(faq, queryNorm, queryTokens) })).sort(
+    (a, b) => b.score - a.score,
+  );
+}
 
-  return ranked;
+export function searchFaqs(query: string, limit = 6): FaqItem[] {
+  const hits = rankedFaqs(query);
+  if (hits.length === 0) return [];
+
+  const queryTokens = expandTokens(tokenize(query));
+  const minScore = queryTokens.length <= 1 ? 2.2 : 3.4;
+
+  const confident = hits.filter((hit) => hit.score >= minScore).slice(0, limit);
+  if (confident.length > 0) return confident.map((hit) => hit.faq);
+
+  const loose = hits.filter((hit) => hit.score > 0.85).slice(0, limit);
+  if (loose.length > 0) return loose.map((hit) => hit.faq);
+
+  return [];
+}
+
+export function proposeFollowUpQuestions(query: string, matches: FaqItem[], limit = 6): string[] {
+  const out: string[] = [];
+  const queryNorm = normalize(query);
+  const queryTokens = expandTokens(tokenize(queryNorm));
+
+  const pushUnique = (question: string) => {
+    const normalized = normalize(question);
+    if (!normalized) return;
+    if (normalized === queryNorm) return;
+    if (out.some((item) => normalize(item) === normalized)) return;
+    out.push(question);
+  };
+
+  const wantsFormation = queryTokens.some((token) =>
+    ["formation", "filiere", "filières", "licence", "master", "orientation", "inscription", "admission"].includes(
+      token,
+    ),
+  );
+
+  if (wantsFormation) {
+    for (const question of CATEGORY_SUGGESTIONS.formations ?? []) {
+      pushUnique(question);
+    }
+  }
+
+  for (const match of matches.slice(0, 4)) {
+    for (const question of CATEGORY_SUGGESTIONS[match.category] ?? []) {
+      pushUnique(question);
+    }
+
+    if (match.question.length <= 96) {
+      pushUnique(match.question);
+    }
+  }
+
+  for (const question of DEFAULT_SUGGESTIONS) {
+    pushUnique(question);
+  }
+
+  return out.slice(0, limit);
 }

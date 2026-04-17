@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { putAudio } from "@/lib/audioCache";
 import { appendSessionTurn, getSessionTurns } from "@/lib/chatMemory";
-import { searchFaqs } from "@/lib/fptFaqs";
+import { proposeFollowUpQuestions, searchFaqs } from "@/lib/fptFaqs";
 import { transcribeAudio } from "@/lib/groq";
 import { askMistral } from "@/lib/mistral";
 import { synthesize } from "@/lib/elevenlabs";
@@ -16,7 +16,12 @@ const IS_DEV = process.env.NODE_ENV !== "production";
 
 type ChatPayload = { sessionId?: string; chatInput?: string; text?: string };
 
-type Reply = { output: string; audioUrl: string | null; sessionId: string };
+type Reply = {
+  output: string;
+  audioUrl: string | null;
+  sessionId: string;
+  suggestions: string[];
+};
 type ParsedInput = { sessionId: string; chatInput: string; source: "text" | "audio" };
 type ParseResult =
   | { ok: true; value: ParsedInput }
@@ -108,6 +113,7 @@ async function postWithLegacyN8n(req: NextRequest): Promise<NextResponse> {
   const body: LegacyN8nJson = Array.isArray(raw) ? (raw[0] ?? {}) : raw;
   const output = body.output ?? body.text ?? body.message ?? "";
   const sessionId = body.sessionId ?? "anon";
+  const suggestions = proposeFollowUpQuestions("", [], 6);
 
   let audioUrl: string | null = null;
   if (output.trim()) {
@@ -123,7 +129,7 @@ async function postWithLegacyN8n(req: NextRequest): Promise<NextResponse> {
     }
   }
 
-  return NextResponse.json({ output, audioUrl, sessionId } satisfies Reply);
+  return NextResponse.json({ output, audioUrl, sessionId, suggestions } satisfies Reply);
 }
 
 function detectInputLang(text: string): "fr" | "ar" | "en" {
@@ -139,14 +145,26 @@ function fallbackReply(chatInput: string, bestAnswer: string | null): string {
 
   const lang = detectInputLang(chatInput);
   if (lang === "ar") {
-    return "لم أجد معلومة دقيقة حول هذا الموضوع في قاعدة معلومات الكلية حاليا. يمكنك زيارة الموقع الرسمي https://fpt.ac.ma أو الاتصال بالهاتف +212 05 28 55 10 10.";
+    return "يمكنني مساعدتك بسرعة في التكوينات، التسجيل، الجداول، الامتحانات وروابط الخدمات الطلابية الخاصة بـ FPT. إذا أردت معلومة دقيقة جدا، راجع الموقع الرسمي https://fpt.ac.ma أو اتصل بالرقم +212 05 28 55 10 10.";
   }
 
   if (lang === "en") {
-    return "I could not find a reliable answer for this in the official FPT knowledge base. Please check https://fpt.ac.ma or call +212 05 28 55 10 10.";
+    return "I can guide you on FPT programs, admissions, timetables, exams, and official student links. For a very specific update, please check https://fpt.ac.ma or call +212 05 28 55 10 10.";
   }
 
-  return "Je n'ai pas trouvé une information fiable sur ce point dans la base officielle de la FPT. Vous pouvez consulter https://fpt.ac.ma ou appeler le standard au +212 05 28 55 10 10.";
+  return "Je peux vous orienter sur les formations, l'inscription, les emplois du temps, les examens et les liens officiels de la FPT. Pour une information très spécifique ou une mise à jour instantanée, consultez https://fpt.ac.ma ou appelez le standard au +212 05 28 55 10 10.";
+}
+
+function sanitizeDeadEndAnswer(output: string, chatInput: string, bestAnswer: string | null): string {
+  const normalized = output.toLowerCase();
+  const deadEndRe =
+    /(je\s+n('| )?ai\s+pas|je\s+ne\s+sais\s+pas|i\s+do\s+not\s+know|i\s+don't\s+know|ما\s*عرفتش|لا\s+اعرف|لا\s+أعرف)/i;
+
+  if (deadEndRe.test(normalized)) {
+    return fallbackReply(chatInput, bestAnswer);
+  }
+
+  return output;
 }
 
 function makeDetail(reason: string, detail?: string): Record<string, string> {
@@ -279,7 +297,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   let output = "";
   const llm = await askMistral({ chatInput, history, retrievedFaqs });
   if (llm.ok) {
-    output = llm.output;
+    output = sanitizeDeadEndAnswer(llm.output, chatInput, retrievedFaqs[0]?.answer ?? null);
   } else {
     if (llm.reason === "upstream") {
       console.error("[/api/chat] mistral upstream error:", llm.status, llm.detail.slice(0, 200));
@@ -290,6 +308,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
     output = fallbackReply(chatInput, retrievedFaqs[0]?.answer ?? null);
   }
+
+  const suggestions = proposeFollowUpQuestions(chatInput, retrievedFaqs, 6);
 
   appendSessionTurn(sessionId, "user", chatInput);
   appendSessionTurn(sessionId, "assistant", output);
@@ -326,6 +346,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
   }
 
-  const reply: Reply = { output, audioUrl, sessionId };
+  const reply: Reply = { output, audioUrl, sessionId, suggestions };
   return NextResponse.json(reply);
 }

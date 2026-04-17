@@ -22,7 +22,35 @@ type ChatResponse = {
   output: string;
   audioUrl: string | null;
   sessionId: string | null;
+  suggestions?: string[];
 };
+
+const DEFAULT_QUICK_QUESTIONS = [
+  "Quelles formations sont disponibles à la FPT ?",
+  "Quels masters peut-on intégrer à la FPT ?",
+  "Comment s'inscrire en licence à la FPT ?",
+  "Où trouver les emplois du temps ?",
+  "Où consulter les avis aux étudiants ?",
+  "Comment contacter la FPT ?",
+];
+
+function normalizeSuggestions(input: string[] | undefined): string[] {
+  if (!Array.isArray(input)) return [];
+
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const item of input) {
+    if (typeof item !== "string") continue;
+    const trimmed = item.trim();
+    if (!trimmed) continue;
+    const normalized = trimmed.toLowerCase();
+    if (seen.has(normalized)) continue;
+    seen.add(normalized);
+    out.push(trimmed);
+  }
+
+  return out;
+}
 
 export default function KioskPage() {
   useKioskLifecycle();
@@ -43,6 +71,7 @@ export default function KioskPage() {
   const sessionId = useKiosk((s) => s.sessionId);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [quickQuestions, setQuickQuestions] = useState<string[]>(DEFAULT_QUICK_QUESTIONS);
   const audioElRef = useRef<HTMLAudioElement | null>(null);
 
   const handleStopAndSendRef = useRef<() => Promise<void>>(async () => {});
@@ -110,10 +139,14 @@ export default function KioskPage() {
           );
         }
         const data = (await res.json()) as ChatResponse;
+        const nextSuggestions = normalizeSuggestions(data.suggestions).slice(0, 6);
 
         const lang: Lang = detectLang(data.output ?? "");
         setLang(lang);
         pushMessage({ role: "rouda", text: data.output ?? "…", lang });
+        setQuickQuestions(
+          nextSuggestions.length > 0 ? nextSuggestions : DEFAULT_QUICK_QUESTIONS,
+        );
         setAudio(data.audioUrl);
         if (data.audioUrl) {
           setPhase("speaking");
@@ -128,6 +161,7 @@ export default function KioskPage() {
           text: "Désolée, je n'arrive pas à répondre maintenant. Réessayez dans un instant.",
           lang: "fr",
         });
+        setQuickQuestions(DEFAULT_QUICK_QUESTIONS);
         setPhase("error");
       }
     },
@@ -306,6 +340,37 @@ export default function KioskPage() {
           </AnimatePresence>
           <div className="w-full">
             <TranscriptBubble message={lastRoudaMessage} />
+          </div>
+
+          <div className="w-full max-w-[960px] px-2">
+            <p
+              className="mb-3 text-center font-mono text-kiosk-xs uppercase tracking-[0.16em]"
+              style={{ color: "var(--color-base-400)" }}
+            >
+              Propositions rapides
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {quickQuestions.map((question) => (
+                <button
+                  key={question}
+                  type="button"
+                  disabled={phase === "thinking"}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    markInteraction();
+                    void handleTextSend(question);
+                  }}
+                  className="rounded-full border-[3px] px-5 py-3 text-left font-mono text-kiosk-xs uppercase tracking-[0.09em] transition disabled:cursor-not-allowed disabled:opacity-40"
+                  style={{
+                    borderColor: "var(--color-ink)",
+                    background: "var(--color-base-100)",
+                    color: "var(--color-ink)",
+                  }}
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

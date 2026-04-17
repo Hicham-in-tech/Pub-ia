@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm off-white base — not pure white, leaves warmth at full brightness */
+  --color-base-50: #fbf7ef;
+  --color-base-100: #f4ecd8;
+  --color-base-200: #e8dcc0;
+  --color-base-300: #c9b891;
+  --color-base-400: #8a7a5c;
+  --color-base-500: #3a3226;
+  --color-base-900: #1a1712;
+
+  /* The daring four */
+  --color-saffron: #f0922a;
+  --color-saffron-deep: #c8651a;
+  --color-teal: #0c7a74;
+  --color-teal-deep: #044e4a;
+  --color-lime: #a8d535;
+  --color-lime-deep: #587312;
+  --color-violet: #5b3fb8;
+  --color-violet-deep: #341f82;
+
+  /* Status hues */
+  --color-signal: #e0383e;
+  --color-ink: #1a1712;
+
+  /* Typography */
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-display: "Fraunces", "Fraunces Fallback", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-ar: "Noto Naskh Arabic", "Noto Naskh Arabic Fallback", serif;
+
+  /* Kiosk-scaled type: built for 1080×1920 and 2160×3840 via clamp */
+  --text-kiosk-xs: clamp(0.95rem, 0.9vw, 1.5rem);
+  --text-kiosk-sm: clamp(1.1rem, 1.2vw, 2rem);
+  --text-kiosk-md: clamp(1.5rem, 1.8vw, 3rem);
+  --text-kiosk-lg: clamp(2.2rem, 2.6vw, 4.2rem);
+  --text-kiosk-xl: clamp(3.2rem, 4vw, 6.4rem);
+  --text-kiosk-xxl: clamp(4.8rem, 6vw, 9.6rem);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-back: cubic-bezier(0.68, -0.3, 0.32, 1.3);
+}
+
+/* ─────── Base kiosk reset ─────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--color-base-50);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  font-variation-settings: "wght" 450;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  overflow: hidden;
+}
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Allow selection only inside the text input, for IME friendliness */
+textarea,
+input[type="text"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* RTL bubble — applied only where Arabic is rendered, not page-level */
+.is-ar {
+  direction: rtl;
+  font-family: var(--font-ar);
+  font-feature-settings: "calt", "liga", "curs";
+  line-height: 1.55;
+}
+
+/* Grain + vignette overlay for warmth; absurdly subtle */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("/grain.svg");
+  background-size: 256px 256px;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  z-index: 90;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(26, 23, 18, 0.18) 100%);
+  z-index: 91;
+}
+
+/* Hide scrollbars — nothing scrolls on a kiosk */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus ring: visible but kiosk-appropriate (since touch has no focus) */
+:focus-visible {
+  outline: 3px solid var(--color-violet);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Safari autofill cleanup (just in case) */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--color-base-50) inset;
+}
+
+/* ─────── Utilities ─────── */
+
+@utility text-kiosk-xl {
+  font-size: var(--text-kiosk-xl);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@utility text-kiosk-xxl {
+  font-size: var(--text-kiosk-xxl);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+@utility text-kiosk-lg {
+  font-size: var(--text-kiosk-lg);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+@utility text-kiosk-md {
+  font-size: var(--text-kiosk-md);
+  line-height: 1.35;
+}
+
+@utility text-kiosk-sm {
+  font-size: var(--text-kiosk-sm);
+  line-height: 1.4;
+}
+
+/* Simulated film-frame edge — for the idle attract loop */
+@utility chip-sticker {
+  padding: 0.6em 1.2em;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--text-kiosk-sm);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 0 0 rgba(26, 23, 18, 0.12);
+  border: 1.5px solid var(--color-ink);
+  background: var(--color-base-50);
+}
+
+/* ─────── Motion: reduce for accessibility only — kiosk always animates */
+
+@keyframes slow-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  33%  { transform: translate(6px, -8px) rotate(1.2deg); }
+  66%  { transform: translate(-5px, 4px) rotate(-0.8deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
